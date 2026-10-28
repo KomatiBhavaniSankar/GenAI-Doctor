@@ -1,0 +1,2421 @@
+{
+"A": {
+"L": "A",
+"title": "Mother of the bride",
+"cell": "High stakes, clock (20 minutes)",
+"hi": true,
+"clk": true,
+"mins": 20,
+"setting": "Emergency department, private multispecialty hospital, Vadodara. 5:10 pm, Saturday.",
+"patient": "Meena Shah, 56 years, female, homemaker",
+"with": "Kavya (Daughter, the bride). Worried. Brought her in against her wishes and keeps watching her face.",
+"hidden": "Inferior ST-elevation myocardial infarction with right ventricular involvement, presenting as epigastric burning in a woman with diabetes",
+"story": [
+"Meena's younger daughter is getting married next Sunday. Tonight is the ring ceremony at home, and the groom's family is due at the house in 20 minutes. Meena has been on her feet since six in the morning, cooking for forty guests and carrying boxes of sweets up to the terrace.",
+"Around 4:20 pm she felt a burning in the upper part of her belly. She took antacid syrup twice and it did nothing. By 4:45 she was sweating so heavily that her blouse was wet, and she sat down suddenly on the kitchen floor. Kavya put her in an auto and brought her to the hospital two kilometers away.",
+"Meena is irritated more than frightened. She has had acidity for years and is sure this is the samosas. She wants the injection she was given for gas last year, and she wants to be home before the guests arrive. She has had diabetes for 12 years and high blood pressure for 6. She skipped her evening tablets because of the rush."
+],
+"opening": [
+{
+"s": "Meena",
+"l": "Doctor, it's only gas. Give me the injection you gave last time. The groom's family will be at the house in twenty minutes."
+},
+{
+"s": "Kavya",
+"l": "She sat down on the floor and she was soaking wet. I've never seen her like that."
+}
+],
+"deadline": "Groom's family arrives at the house in 20 minutes",
+"clock": [
+{
+"m": "4",
+"s": "Meena",
+"l": "Kavya, call your father. Tell him to start serving tea. I'll be there."
+},
+{
+"m": "9",
+"s": "Meena",
+"l": "They'll be at the door now. Please, just the injection."
+},
+{
+"m": "15",
+"s": "Kavya",
+"l": "Papa says they've reached. What do I tell him?"
+}
+],
+"pressure": "",
+"req": [
+"Antacid or gas injection",
+"Discharge within minutes"
+],
+"vitals": [
+"Heart rate 104 /min, regular",
+"Blood pressure 100/66 mmHg",
+"Respiratory rate 20 /min",
+"SpO2 95% on room air",
+"Temperature 36.8 °C",
+"Random blood glucose 268 mg/dL"
+],
+"exam": [
+"Pale, sweating, uncomfortable but alert and oriented",
+"Upper abdomen soft, no tenderness on pressing, pain not reproduced by palpation",
+"Chest clear, jugular venous pressure raised at 4 cm",
+"Heart sounds normal, no murmur",
+"Peripheral pulses present and equal"
+],
+"results": [
+{
+"t": "12-lead ECG",
+"r": "ST elevation of 2 mm in II, III and aVF. Reciprocal ST depression in I and aVL. Sinus tachycardia."
+},
+{
+"t": "Right-sided ECG (V4R)",
+"r": "1 mm ST elevation in V4R, consistent with right ventricular involvement."
+},
+{
+"t": "High-sensitivity troponin I",
+"r": "1,850 ng/L (reference below 16 ng/L)"
+},
+{
+"t": "Serum lipase",
+"r": "Within normal range"
+},
+{
+"t": "Electrolytes and creatinine",
+"r": "Potassium 4.3 mmol/L, creatinine 0.9 mg/dL"
+},
+{
+"t": "Complete blood count",
+"r": "Within normal range"
+},
+{
+"t": "Chest X-ray",
+"r": "No abnormality seen"
+},
+{
+"t": "Bedside echocardiogram",
+"r": "Reduced movement of the inferior wall. Right ventricle mildly dilated."
+}
+],
+"summary": "Case summary. 56-year-old woman with diabetes (12 years) and hypertension on record. Upper abdominal burning for about 50 minutes with heavy sweating and a near-collapse at home. Tachycardic, blood pressure low-normal, glucose high. The picture fits a cardiac cause at least as well as gastritis.",
+"dx": [
+{
+"n": "Acute coronary syndrome (possible myocardial infarction)",
+"lik": "High",
+"basis": "Sweating, near-collapse, tachycardia, diabetes, age"
+},
+{
+"n": "Acute pancreatitis",
+"lik": "Low",
+"basis": "Epigastric pain. Check abdominal tenderness and lipase."
+},
+{
+"n": "Gastritis or acid reflux",
+"lik": "Low",
+"basis": "Acidity on record, but does not explain sweating, tachycardia or near-collapse"
+},
+{
+"n": "Aortic dissection",
+"lik": "Low",
+"basis": "Check pulses and pain character before any thrombolysis"
+}
+],
+"must": "Must not miss. Myocardial infarction without chest pain. Women with diabetes often present with epigastric pain, sweating, breathlessness or fatigue alone.",
+"sq": [
+"Time of onset and what she was doing",
+"Pain or heaviness in jaw, arm, neck or back",
+"Breathlessness or unusual tiredness in recent days",
+"Response to the antacid",
+"Bleeding, stroke, recent surgery or aspirin allergy"
+],
+"tests": [
+{
+"t": "12-lead ECG",
+"why": "Within 10 minutes of arrival. Decides reperfusion."
+},
+{
+"t": "Right-sided leads (V4R) if inferior changes",
+"why": "Right ventricular involvement changes fluid and nitrate decisions"
+},
+{
+"t": "High-sensitivity troponin",
+"why": "Confirms myocardial injury, repeat per protocol if first is borderline"
+},
+{
+"t": "Electrolytes, creatinine, CBC, coagulation",
+"why": "Baseline before antiplatelets, anticoagulation or contrast"
+}
+],
+"related": [
+{
+"t": "Serum lipase",
+"when": "To exclude pancreatitis as the cause of epigastric pain"
+},
+{
+"t": "Bedside echocardiogram",
+"when": "To assess wall motion and right ventricle"
+},
+{
+"t": "Chest X-ray",
+"when": "Before thrombolysis, or if dissection is a concern"
+},
+{
+"t": "HbA1c and lipid profile",
+"when": "During admission, does not change the first hour"
+}
+],
+"meds": [
+{
+"n": "Aspirin 150–325 mg, chewed (non-enteric-coated)",
+"use": "Antiplatelet, as soon as ACS is likely",
+"note": "Check for aspirin allergy and active bleeding"
+},
+{
+"n": "Ticagrelor 180 mg or clopidogrel 300–600 mg loading",
+"use": "Second antiplatelet",
+"note": "Choice depends on reperfusion plan and cardiology protocol"
+},
+{
+"n": "Unfractionated or low-molecular-weight heparin",
+"use": "Anticoagulation",
+"note": "Dose per protocol and reperfusion strategy"
+},
+{
+"n": "Primary PCI, or fibrinolysis (e.g., tenecteplase) if PCI cannot be done within 120 minutes",
+"use": "Reperfusion",
+"note": "Screen for contraindications before fibrinolysis"
+},
+{
+"n": "Atorvastatin 80 mg",
+"use": "High-intensity statin",
+"note": ""
+},
+{
+"n": "Insulin per protocol",
+"use": "Glucose control",
+"note": "Hold oral diabetes tablets for now"
+}
+],
+"cautions": [
+"Avoid nitrates if right ventricular involvement is confirmed or systolic BP is below 90 mmHg. Current BP is 100/66.",
+"If BP falls, small fluid boluses are usually preferred in right ventricular infarction. Avoid diuretics.",
+"Relief after an antacid or PPI does not exclude a cardiac cause."
+],
+"reqNote": "On the patient's request. Requested: gas injection and discharge. A PPI or antacid injection does not treat the most likely diagnosis. Discharge before ECG and troponin would leave a probable myocardial infarction untreated.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "Aspirin given before the first ECG was read in suspected ACS: 64% of cases"
+},
+{
+"p": "Global medicine trends",
+"v": "PPI or antacid injection given first in women presenting with epigastric pain who were later diagnosed with ACS: 29%"
+},
+{
+"p": "Global medicine trends",
+"v": "Ticagrelor chosen over clopidogrel for loading: 52%"
+},
+{
+"p": "Global medicine trends",
+"v": "Fibrinolysis used where the nearest cath lab was over two hours away: 61%"
+},
+{
+"p": "Cases at this hospital",
+"v": "ACS admissions in the last 12 months: 214, of whom 58 were women"
+},
+{
+"p": "Cases at this hospital",
+"v": "Women with diabetes whose main complaint was epigastric pain: 22"
+},
+{
+"p": "Cases at this hospital",
+"v": "Median time from arrival to first ECG: 14 minutes"
+},
+{
+"p": "Cases reported globally",
+"v": "Registry of 48,000 ACS cases: about 1 in 4 women with diabetes reported no chest pain on arrival"
+},
+{
+"p": "Cases reported globally",
+"v": "Delayed diagnosis was more frequent when the first working diagnosis was gastritis"
+}
+],
+"ref": "Treat as inferior STEMI with right ventricular involvement. ECG within 10 minutes, aspirin and P2Y12 loading, anticoagulation, and reperfusion by primary PCI or fibrinolysis depending on cath lab access. Avoid nitrates. Admit to coronary care. Explain to Meena and Kavya that she cannot go home tonight, and help Kavya contact the family.",
+"scored": "Key actions scored: ECG before any discharge decision; Aspirin given; Reperfusion pathway activated; No nitrates given with RV involvement; No discharge on antacid alone",
+"dq": [
+{
+"ask": "When exactly did the pain start, and what were you doing?",
+"ans": "Around twenty past four. I was carrying the sweet boxes up to the terrace. I thought it was the samosas from lunch.",
+"why": "Onset time sets the reperfusion window. Onset on exertion points to the heart."
+},
+{
+"ask": "Does the pain or any heaviness go to your jaw, arms, neck or back?",
+"ans": "My left arm feels heavy, like after washing clothes. I thought that was from the work.",
+"why": "Radiation to the arm is an ACS feature she would not volunteer."
+},
+{
+"ask": "In the last few days, have you been more breathless or tired than usual?",
+"ans": "This week I get tired climbing the stairs. Everyone is tired before a wedding.",
+"why": "Recent exertional symptoms suggest an unstable coronary picture."
+},
+{
+"ask": "Did the antacid help at all?",
+"ans": "I took the syrup twice. Nothing changed.",
+"why": "Lack of response weakens the gastritis explanation."
+},
+{
+"ask": "Which medicines do you take, and did you take them today?",
+"ans": "Sugar tablets twice a day and one BP tablet. I missed the evening ones today.",
+"why": "Shapes glucose and blood pressure management."
+},
+{
+"ask": "Has anyone in your family had heart trouble?",
+"ans": "My elder brother had a bypass when he was sixty.",
+"why": "Family history raises pre-test probability."
+},
+{
+"ask": "Have you ever had a stroke, a stomach bleed, recent surgery, or an allergy to aspirin?",
+"ans": "No. No allergy. Never had surgery except my delivery.",
+"why": "Screens contraindications for antiplatelets and fibrinolysis."
+},
+{
+"ask": "(To Kavya) Did she faint, or was she confused at any point?",
+"ans": "She didn't faint. She sat down suddenly and couldn't get up for a minute. She knew what was happening.",
+"why": "Distinguishes syncope and arrhythmia from near-collapse."
+}
+],
+"pq": [
+{
+"by": "Meena",
+"q": "It's only gas. Why can't you just give the injection?",
+"a": "That injection eases acidity. Your sweating, the heavy arm and your fast pulse worry me that this is your heart. A heart tracing takes five minutes and will tell us. I want to know that before you leave."
+},
+{
+"by": "Meena",
+"q": "How long will this take? They'll be at the door in twenty minutes.",
+"a": "The tracing and the first blood test take about ten minutes. If it is your heart, you can't go home tonight, because treatment works best in the first few hours. Kavya can call home now and let your husband receive the guests."
+},
+{
+"by": "Kavya",
+"q": "How can it be a heart attack if she has no chest pain?",
+"a": "Women with diabetes often don't get the usual chest pain. Burning in the upper belly, heavy sweating and a heavy arm can all come from the heart. The ECG will settle it."
+},
+{
+"by": "Kavya",
+"q": "The ECG shows a heart attack. What happens now?",
+"a": "We've given blood-thinning tablets. Next we open the blocked artery, either with a balloon in the cath lab or with a clot-dissolving injection here. I'll explain each step as we go, and you can stay with her."
+},
+{
+"by": "Meena",
+"q": "If I stay, the ceremony is ruined. Can't I come back after the guests leave?",
+"a": "Every hour we wait, more heart muscle is lost, and that loss is permanent. The ceremony can go ahead without you tonight. Kavya needs you well for the wedding next week."
+},
+{
+"by": "Meena",
+"q": "What about my sugar tablets?",
+"a": "We'll control your sugar with insulin while you're here. Don't take your tablets until we review them before you go home."
+}
+],
+"push": [
+{
+"when": "orders an ECG first",
+"s": "Meena",
+"l": "Five minutes only. Then the injection and I go."
+},
+{
+"when": "advises admission",
+"s": "Meena",
+"l": "Who will receive the guests? Kavya, tell your father I'm fine, it's just gas."
+},
+{
+"when": "gives an antacid injection and prepares discharge",
+"s": "Kavya",
+"l": "Are you sure, doctor? She's still sweating."
+}
+]
+},
+"B": {
+"L": "B",
+"title": "Baby who will not stop crying",
+"cell": "High stakes, no clock",
+"hi": true,
+"clk": false,
+"mins": 0,
+"setting": "Pediatric emergency and newborn unit (SNCU), district hospital, Nashik district. 11:30 am, Tuesday.",
+"patient": "Baby of Lakshmi Pawar, 21 days, male",
+"with": "Lakshmi (Mother). Exhausted and frightened. Says little in front of her husband unless asked directly. Ravi (Father, farm laborer). Wants the syrup and to start the journey home. Thinking about wages and the older child.",
+"hidden": "Late-onset neonatal sepsis with bacterial meningitis in a 21-day-old infant",
+"story": [
+"The baby was born three weeks ago at the taluka hospital, at full term, weighing 2.9 kg. Lakshmi's waters broke the evening before the delivery and she had a fever during labor, for which she was given a drip and injections. Mother and baby went home on the second day.",
+"Since about five this morning the baby has been crying in a way Lakshmi has not heard before, and he feeds for a minute and then falls asleep at the breast. He felt hot. A neighbor gave half a spoon of paracetamol syrup at seven and some gripe water. The local chemist would not sell anything more and told them to go to the district hospital.",
+"The family took two buses, about three hours in all. Ravi has lost a day's wages and their four-year-old is at home with his mother. They have spent most of the cash they brought on fares. They are not in a hurry to catch anything, but they want a fever syrup, a quick look, and to go home today. The last bus back runs in the evening."
+],
+"opening": [
+{
+"s": "Ravi",
+"l": "He has fever since morning. Give some good syrup, doctor. We've come from far."
+},
+{
+"s": "Lakshmi",
+"l": "He's not drinking properly. He cries and then sleeps."
+}
+],
+"deadline": "",
+"clock": [],
+"pressure": "Cost of travel and lost wages, an older child left at home, distance from the hospital, and the father's wish to manage this as a simple fever.",
+"req": [
+"Fever syrup",
+"Go home today"
+],
+"vitals": [
+"Weight 3.3 kg",
+"Temperature 38.3 °C (axillary), 3 hours after paracetamol",
+"Heart rate 182 /min",
+"Respiratory rate 62 /min",
+"SpO2 96% on room air",
+"Capillary refill 3 seconds",
+"Blood glucose 62 mg/dL"
+],
+"exam": [
+"Irritable when handled, drowsy between cries, cry weaker than expected",
+"Anterior fontanelle soft and flat",
+"Mottled skin over both legs, no rash, no jaundice",
+"Umbilical stump clean and dry",
+"Mildly reduced tone, no focal neurological signs"
+],
+"results": [
+{
+"t": "Complete blood count",
+"r": "WBC 4,200 /µL, absolute neutrophil count 1,200 /µL, platelets 140,000 /µL"
+},
+{
+"t": "C-reactive protein",
+"r": "48 mg/L"
+},
+{
+"t": "Blood culture",
+"r": "Sent. Preliminary result in 24–48 hours."
+},
+{
+"t": "Urine by catheter, microscopy",
+"r": "2–3 white cells per high-power field, nitrite negative"
+},
+{
+"t": "Lumbar puncture (CSF)",
+"r": "WBC 86 /µL (70% neutrophils), protein 140 mg/dL, glucose 28 mg/dL. Gram stain: Gram-positive cocci in chains."
+},
+{
+"t": "Serum electrolytes",
+"r": "Sodium 134 mmol/L, potassium 4.6 mmol/L"
+},
+{
+"t": "Serum bilirubin",
+"r": "4.2 mg/dL"
+}
+],
+"summary": "Case summary. 21-day-old boy with fever, poor feeding and unusual crying since early morning. Paracetamol syrup given at home three hours ago, yet temperature is 38.3 °C. Tachycardic and tachypneic with capillary refill of 3 seconds. Any fever in an infant under 28 days needs a full sepsis evaluation and admission.",
+"dx": [
+{
+"n": "Late-onset neonatal sepsis",
+"lik": "High",
+"basis": "Age under 28 days, fever despite antipyretic, poor feeding, tachycardia, prolonged capillary refill"
+},
+{
+"n": "Bacterial meningitis",
+"lik": "Moderate",
+"basis": "Unusual cry and drowsiness. Ask about stiffening, jerks or staring."
+},
+{
+"n": "Urinary tract infection",
+"lik": "Moderate",
+"basis": "Common source of fever in young infants"
+},
+{
+"n": "Neonatal herpes simplex infection",
+"lik": "Low",
+"basis": "Ask about maternal sores. Consider acyclovir if seizures or CSF changes appear."
+}
+],
+"must": "Must not miss. Sepsis and meningitis. Fever can be the only early sign. Antipyretics given at home can mask the temperature.",
+"sq": [
+"Feeding and wet nappies since last night",
+"Early rupture of membranes or fever in the mother at delivery",
+"Stiffening, jerking, staring or floppiness",
+"Vomiting, loose stools, fast breathing",
+"What was given at home and when",
+"Illness at home, maternal sores",
+"Jaundice"
+],
+"tests": [
+{
+"t": "Blood culture before antibiotics",
+"why": "Identifies organism and guides duration"
+},
+{
+"t": "CBC and CRP",
+"why": "Supports the risk assessment, does not rule out infection when normal"
+},
+{
+"t": "Urine by catheter or suprapubic aspiration, microscopy and culture",
+"why": "Bag samples are unreliable at this age"
+},
+{
+"t": "Lumbar puncture",
+"why": "Decides antibiotic choice, dose and duration. Do not delay antibiotics if LP cannot be done promptly."
+},
+{
+"t": "Blood glucose",
+"why": "Hypoglycemia is common in sick neonates"
+}
+],
+"related": [
+{
+"t": "Serum electrolytes and creatinine",
+"when": "If feeding poorly or on IV fluids"
+},
+{
+"t": "Serum bilirubin",
+"when": "If jaundice develops, and before choosing ceftriaxone"
+},
+{
+"t": "CSF HSV PCR",
+"when": "If seizures, vesicles, maternal HSV history or abnormal CSF"
+},
+{
+"t": "Cranial ultrasound",
+"when": "If meningitis is confirmed or the infant deteriorates"
+}
+],
+"meds": [
+{
+"n": "Ampicillin plus gentamicin, weight-based per neonatal protocol",
+"use": "Empirical antibiotics for sepsis",
+"note": "Start within the hour"
+},
+{
+"n": "Ampicillin plus cefotaxime at meningitic doses",
+"use": "If meningitis is suspected or CSF is abnormal",
+"note": "Avoid ceftriaxone in neonates with jaundice or receiving calcium-containing IV fluids"
+},
+{
+"n": "Acyclovir, weight-based",
+"use": "If HSV risk features are present",
+"note": ""
+},
+{
+"n": "Paracetamol, weight-based neonatal dose",
+"use": "Comfort only",
+"note": "Does not treat the cause"
+},
+{
+"n": "IV fluids or nasogastric expressed breast milk",
+"use": "Hydration and glucose",
+"note": "Per feeding ability"
+}
+],
+"cautions": [
+"Do not discharge on antipyretics. A falling temperature after syrup does not mean the infection is improving.",
+"A history of seizures changes the likely diagnosis and the antibiotic plan."
+],
+"reqNote": "On the patient's request. Requested: fever syrup and discharge. Not appropriate under 28 days of age with fever. Admission for investigations and IV antibiotics is indicated.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "Ampicillin plus gentamicin as first empirical regimen in febrile infants under 28 days: 57%"
+},
+{
+"p": "Global medicine trends",
+"v": "Cefotaxime added when CSF was abnormal: 81%"
+},
+{
+"p": "Global medicine trends",
+"v": "Lumbar puncture done before the first antibiotic dose: 46%"
+},
+{
+"p": "Cases at this hospital",
+"v": "Febrile neonates admitted to the newborn unit in the last 12 months: 96"
+},
+{
+"p": "Cases at this hospital",
+"v": "Confirmed bloodstream infection: 14. Confirmed meningitis: 5"
+},
+{
+"p": "Cases at this hospital",
+"v": "Median travel time to hospital for these families: 2.4 hours"
+},
+{
+"p": "Cases reported globally",
+"v": "Multinational dataset of 31,000 febrile infants aged 28 days or less: serious bacterial infection in about 1 in 8"
+},
+{
+"p": "Cases reported globally",
+"v": "Infants sent home with antipyretics at the first visit had more returns within 72 hours"
+}
+],
+"ref": "Admit to the newborn unit. Full sepsis evaluation including blood culture, catheter urine and lumbar puncture, with antibiotics started within the hour. Once CSF shows meningitis, ampicillin with cefotaxime at meningitic doses for a prolonged course per protocol. Supportive care and seizure monitoring. Speak to both parents, address cost and stay, and involve the social worker.",
+"scored": "Key actions scored: No discharge; Blood culture taken; Lumbar puncture done or planned without delaying antibiotics; IV antibiotics started; Parents' cost and stay concerns addressed",
+"dq": [
+{
+"ask": "How has he been feeding today compared with before? How many wet nappies since last night?",
+"ans": "Lakshmi: He sucks for a minute and sleeps. Only three wet cloths since last night. Usually I change him many times.",
+"why": "Poor feeding and reduced urine suggest systemic illness and dehydration."
+},
+{
+"ask": "(To Lakshmi) Before he was born, did your waters break early, or did you have fever?",
+"ans": "Lakshmi: The water broke the evening before. On the day he was born they said I had fever and gave me a drip and injections.",
+"why": "Maternal risk factors for neonatal sepsis. She will not mention this unless asked."
+},
+{
+"ask": "Has he had any stiffening, jerking, staring, or gone floppy?",
+"ans": "Lakshmi: In the bus his arms went stiff for a moment and his eyes looked up. I thought he was cold.",
+"why": "Possible seizure, which points toward meningitis."
+},
+{
+"ask": "Has he vomited, had loose stools, or breathed fast or noisily?",
+"ans": "Ravi: He brought up milk twice. His breathing looks fast to me.",
+"why": "Supports systemic illness, helps assess hydration."
+},
+{
+"ask": "What has he been given at home, and when?",
+"ans": "Ravi: The neighbor gave half a spoon of fever syrup at seven. And gripe water.",
+"why": "Antipyretic can mask fever. Dose and product matter."
+},
+{
+"ask": "Has anyone at home been ill? Has either of you had sores on the lips or private parts?",
+"ans": "Lakshmi: Nobody is ill. No sores.",
+"why": "Screens household infection and HSV risk."
+},
+{
+"ask": "Has he looked yellow at any time?",
+"ans": "Lakshmi: A little in the first week, then it went.",
+"why": "Relevant to antibiotic choice and bilirubin check."
+}
+],
+"pq": [
+{
+"by": "Ravi",
+"q": "Can't you just give fever syrup? We have a long way to go.",
+"a": "In a baby this young, fever can be the first sign of an infection in the blood or the covering of the brain. Syrup would bring the temperature down and hide it. He needs tests today and antibiotics through a drip, and he needs to stay."
+},
+{
+"by": "Lakshmi",
+"q": "Why do you need to put a needle in his back?",
+"a": "It's the only way to know if the infection has reached the covering of the brain. That decides which medicine he gets and for how long. It's a thin needle and takes a few minutes while a nurse holds him curled up. You can be nearby."
+},
+{
+"by": "Ravi",
+"q": "How many days? I lose my wages, and who will pay?",
+"a": "At least a week, and longer if the brain covering is infected. Most of the care in this newborn unit is free. Our staff will tell you exactly what, if anything, you'll need to pay. One of you can stay with him."
+},
+{
+"by": "Lakshmi",
+"q": "Did this happen because I bathed him, or took him out?",
+"a": "No. This is an infection, often from germs around the time of birth. Nothing you did caused it. You noticed he wasn't right and brought him in, which was the right thing."
+},
+{
+"by": "Lakshmi",
+"q": "Can I still breastfeed him?",
+"a": "Yes, whenever he's awake enough to feed. If he's too sleepy, we'll give your milk through a small tube, so please keep expressing."
+},
+{
+"by": "Ravi",
+"q": "Can we take him to a private hospital near our village instead?",
+"a": "Moving him now would delay the antibiotics, and they need to start within the hour. Once he's stable, we can talk about transfer if you still want it."
+}
+],
+"push": [
+{
+"when": "advises admission",
+"s": "Ravi",
+"l": "Doctor, my mother is alone with our older one. We can't both stay here for days."
+},
+{
+"when": "proposes lumbar puncture",
+"s": "Lakshmi",
+"l": "Not in his back. He's so small."
+},
+{
+"when": "prescribes syrup and discharge",
+"s": "Lakshmi",
+"l": "But he's still not drinking. What do I do tonight if he doesn't feed?"
+}
+]
+},
+"C": {
+"L": "C",
+"title": "Mason under the slab",
+"cell": "High stakes, clock (15 minutes)",
+"hi": true,
+"clk": true,
+"mins": 15,
+"setting": "Emergency department, municipal hospital, Pune. 4:30 pm, Thursday.",
+"patient": "Santosh Jadhav, 38 years, male, mason, building construction site",
+"with": "Mr. Kulkarni (Site supervisor). Brought him in the contractor's jeep. Has to return it to the site and wants to leave soon.",
+"hidden": "Crush injury of the right leg with rhabdomyolysis, hyperkalemia, early acute kidney injury and anterior compartment syndrome",
+"story": [
+"At about 1 pm a precast concrete slab slipped during shuttering removal and fell across Santosh's right leg. Co-workers could not lift it by hand. A hydraulic jack arrived from another site and they freed him at about 3:50 pm, nearly three hours later. He was conscious throughout.",
+"The supervisor gave him two white tablets from the site first-aid box and drove him to the hospital in the contractor's jeep. The jeep has to be back at the site in 15 minutes, and it is Santosh's only way home. His wife Rekha is alone in the workers' colony with their two children, aged two and five. His phone battery is dead and she does not know what happened.",
+"Santosh says the leg is only bruised. He is worried that a stay in hospital will cost him the job, since the contractor pays by the day and has replaced injured workers before. He wants a tight bandage, a pain tablet, and to leave with the jeep."
+],
+"opening": [
+{
+"s": "Santosh",
+"l": "It's just a bruise, doctor. Tie a bandage tight and give one pain tablet. The jeep is going back."
+},
+{
+"s": "Mr. Kulkarni",
+"l": "I have to return the vehicle in fifteen minutes. Can you finish quickly?"
+}
+],
+"deadline": "Contractor's jeep leaves in 15 minutes, his only transport home",
+"clock": [
+{
+"m": "3",
+"s": "Mr. Kulkarni",
+"l": "Doctor, ten minutes more, then I have to go."
+},
+{
+"m": "8",
+"s": "Santosh",
+"l": "If the jeep goes, how will I reach home? My wife doesn't know anything."
+},
+{
+"m": "12",
+"s": "Mr. Kulkarni",
+"l": "I'm leaving now. Santosh, are you coming or not?"
+}
+],
+"pressure": "",
+"req": [
+"Tight bandage",
+"Pain tablet",
+"Leave with the jeep"
+],
+"vitals": [
+"Heart rate 116 /min",
+"Blood pressure 104/68 mmHg",
+"Respiratory rate 22 /min",
+"SpO2 97% on room air",
+"Temperature 36.6 °C",
+"GCS 15"
+],
+"exam": [
+"Right thigh and calf swollen, tense and shiny, with abrasions over the shin",
+"Severe pain on passive movement of the toes, out of proportion to visible injury",
+"Reduced sensation in the web space between the first and second toes",
+"Dorsalis pedis pulse palpable but weaker than on the left",
+"Cannot bear weight. No other injuries found on secondary survey."
+],
+"results": [
+{
+"t": "Creatine kinase (CK)",
+"r": "34,000 U/L"
+},
+{
+"t": "Serum potassium",
+"r": "6.1 mmol/L"
+},
+{
+"t": "Creatinine and urea",
+"r": "Creatinine 1.7 mg/dL, urea 58 mg/dL"
+},
+{
+"t": "Serum calcium",
+"r": "7.6 mg/dL"
+},
+{
+"t": "Urine dipstick and microscopy",
+"r": "Dark brown urine. Blood 3+ on dipstick, no red cells on microscopy, consistent with myoglobinuria."
+},
+{
+"t": "12-lead ECG",
+"r": "Sinus tachycardia with peaked T waves"
+},
+{
+"t": "Arterial blood gas",
+"r": "pH 7.29, bicarbonate 17 mmol/L, lactate 3.4 mmol/L"
+},
+{
+"t": "X-ray right leg",
+"r": "Undisplaced fracture of the proximal fibula. Tibia intact."
+},
+{
+"t": "Anterior compartment pressure",
+"r": "42 mmHg (diastolic BP 68 mmHg, difference 26 mmHg)"
+}
+],
+"summary": "Case summary. 38-year-old man whose right leg was trapped under a concrete slab for about three hours, according to the triage note. Tachycardic with blood pressure low-normal. Says the leg is only bruised. Compression of a large muscle mass for this long carries a high risk of crush syndrome, with hyperkalemia and acute kidney injury, and of compartment syndrome.",
+"dx": [
+{
+"n": "Crush syndrome (traumatic rhabdomyolysis)",
+"lik": "High",
+"basis": "About three hours of compression of a large muscle mass"
+},
+{
+"n": "Acute compartment syndrome, right leg",
+"lik": "High",
+"basis": "Mechanism and duration. Examine for tense compartments, pain on passive stretch and sensory change."
+},
+{
+"n": "Fracture of tibia or fibula",
+"lik": "Moderate",
+"basis": "Mechanism of injury"
+},
+{
+"n": "Hyperkalemia with arrhythmia risk",
+"lik": "Moderate to high",
+"basis": "Muscle breakdown after release"
+}
+],
+"must": "Must not miss. Hyperkalemia and acute kidney injury after release of a crushed limb. A patient who looks well can deteriorate within hours.",
+"sq": [
+"Exact duration of entrapment and time of release",
+"Urine passed since release, and its color",
+"Numbness or tingling in the foot",
+"Any tablets given at the site",
+"Injuries elsewhere",
+"Last tetanus injection",
+"Previous kidney or heart disease"
+],
+"tests": [
+{
+"t": "Serum potassium and 12-lead ECG",
+"why": "Immediate threat to life"
+},
+{
+"t": "Creatine kinase",
+"why": "Confirms and grades rhabdomyolysis"
+},
+{
+"t": "Creatinine, urea, calcium, phosphate",
+"why": "Kidney function and electrolyte pattern"
+},
+{
+"t": "Urine dipstick and microscopy",
+"why": "Blood on dipstick without red cells suggests myoglobin"
+},
+{
+"t": "Blood gas with lactate",
+"why": "Acidosis and perfusion"
+},
+{
+"t": "X-ray of the leg",
+"why": "Fracture"
+}
+],
+"related": [
+{
+"t": "Compartment pressure measurement",
+"when": "If clinical signs are unclear, or the patient cannot be examined reliably"
+},
+{
+"t": "Repeat potassium, CK and creatinine every 4–6 hours",
+"when": "During the first 24–48 hours"
+},
+{
+"t": "Urine output via catheter",
+"when": "Throughout fluid resuscitation"
+},
+{
+"t": "Coagulation profile and blood group",
+"when": "Before fasciotomy"
+}
+],
+"meds": [
+{
+"n": "Isotonic saline at a high rate (around 1 L per hour initially in adults), titrated to urine output and volume status",
+"use": "Prevent kidney injury from myoglobin",
+"note": "Watch for fluid overload if urine output does not rise"
+},
+{
+"n": "Calcium gluconate 10%, 10 mL IV over 5– 10 minutes",
+"use": "Protect the heart if ECG shows hyperkalemic changes",
+"note": ""
+},
+{
+"n": "Regular insulin 10 units with 25 g dextrose IV",
+"use": "Shift potassium into cells",
+"note": "Monitor glucose"
+},
+{
+"n": "Nebulized salbutamol",
+"use": "Additional potassium shift",
+"note": ""
+},
+{
+"n": "IV opioid analgesia, titrated",
+"use": "Pain",
+"note": ""
+},
+{
+"n": "Tetanus toxoid, with immunoglobulin if indicated",
+"use": "Open abrasions on a contaminated site",
+"note": ""
+}
+],
+"cautions": [
+"Avoid NSAIDs. They add kidney injury risk. Ask what the site tablets were.",
+"Do not apply a tight bandage. It raises compartment pressure.",
+"Do not elevate the limb above heart level in suspected compartment syndrome."
+],
+"reqNote": "On the patient's request. Requested: tight bandage, pain tablet, discharge. A compressive bandage can worsen compartment syndrome, and an NSAID tablet adds kidney risk. Discharge risks death from hyperkalemia.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "IV isotonic fluids started before or at arrival in crush injury: 48%"
+},
+{
+"p": "Global medicine trends",
+"v": "NSAIDs given for pain before arrival: 37%"
+},
+{
+"p": "Global medicine trends",
+"v": "Fasciotomy performed within 6 hours of compartment syndrome diagnosis: 62%"
+},
+{
+"p": "Global medicine trends",
+"v": "Sodium bicarbonate added to fluids: 23%"
+},
+{
+"p": "Cases at this hospital",
+"v": "Construction-site injuries seen in the last 12 months: 311"
+},
+{
+"p": "Cases at this hospital",
+"v": "Crush injuries of a limb: 27. Developed acute kidney injury: 9. Needed dialysis: 3"
+},
+{
+"p": "Cases reported globally",
+"v": "Industrial and disaster registry of 12,400 crush injuries: acute kidney injury in about 1 in 4 when trapped for more than two hours"
+},
+{
+"p": "Cases reported globally",
+"v": "Hyperkalemia was the leading cause of death in the first 24 hours after release"
+}
+],
+"ref": "Admit. Large-bore IV access, high-rate isotonic fluids, urinary catheter and output monitoring. Treat hyperkalemia now: calcium gluconate, insulin with dextrose, salbutamol, cardiac monitoring. Urgent orthopedic review for fasciotomy of the anterior compartment. IV opioid analgesia, no NSAIDs, no compressive bandage. Tetanus cover. HDU or ICU, with nephrology input if kidney function worsens. Ask the supervisor for contact details and arrange for Rekha to be informed.",
+"scored": "Key actions scored: Not discharged; Potassium and ECG checked; Hyperkalemia treated; IV fluids started; Orthopedics called for compartment syndrome; No NSAID, no tight bandage; Wife informed through supervisor or social worker",
+"dq": [
+{
+"ask": "Exactly how long was the leg under the slab, and when was it lifted?",
+"ans": "Mr. Kulkarni: It fell around one o'clock. We got it off with the jack at about ten to four.",
+"why": "Duration of compression predicts crush syndrome."
+},
+{
+"ask": "Have you passed urine since? What color was it?",
+"ans": "Santosh: Once, near the gate. Very little. It looked like tea without milk.",
+"why": "Dark urine suggests myoglobinuria."
+},
+{
+"ask": "Can you feel me touching here, between your big toe and the next one?",
+"ans": "Santosh: It feels like through a cloth. A bit numb.",
+"why": "Deep peroneal nerve involvement in the anterior compartment."
+},
+{
+"ask": "Does the pain get worse when I gently move your toes?",
+"ans": "Santosh: Aah, yes. Please don't do that.",
+"why": "Pain on passive stretch is an early sign of compartment syndrome."
+},
+{
+"ask": "Did anything hit your head, chest, belly or back? Any pain there?",
+"ans": "Santosh: No, only the leg. My back is fine.",
+"why": "Rules out other injuries before focusing on the limb."
+},
+{
+"ask": "What tablets did you get at the site?",
+"ans": "Mr. Kulkarni: Two pain tablets from the first-aid box. I think diclofenac.",
+"why": "NSAIDs add to kidney injury."
+},
+{
+"ask": "When did you last have a tetanus injection?",
+"ans": "Santosh: When I cut my hand at work, maybe five or six years back.",
+"why": "Open abrasions at a contaminated site."
+},
+{
+"ask": "Have you ever had kidney or heart problems, or any long-term illness?",
+"ans": "Santosh: Never. I've never stayed in a hospital.",
+"why": "Baseline renal and cardiac risk."
+}
+],
+"pq": [
+{
+"by": "Santosh",
+"q": "It's only a bruise. Why can't you bandage it and let me go?",
+"a": "Your leg was crushed for almost three hours. The muscle is swelling inside a tight space and is releasing substances that can stop your kidneys and your heart. The color of your urine shows it's already started. A tight bandage would make it worse. You need a drip now and probably an operation tonight."
+},
+{
+"by": "Santosh",
+"q": "Who will tell my wife? She's alone with the children.",
+"a": "We'll make sure she's told before the supervisor leaves. Give us the address or a neighbor's number. Our social worker can call and arrange for someone to bring her here."
+},
+{
+"by": "Mr. Kulkarni",
+"q": "Can he come back tomorrow? I have to return the jeep.",
+"a": "No. If he leaves now, the potassium in his blood could stop his heart tonight. He has to stay. You can go, but please leave his wife's contact and the site office number with the nurse."
+},
+{
+"by": "Santosh",
+"q": "What operation? Will I lose the leg?",
+"a": "The surgeon will open the tight covering around the muscle so the pressure comes down. That protects the muscle and the nerves. The cuts are closed a few days later. Doing it early gives you the best chance of keeping a working leg."
+},
+{
+"by": "Santosh",
+"q": "How much will this cost? Will the contractor pay?",
+"a": "We start treatment first. Our staff will explain the costs and help with the paperwork. Your records will show this was an injury at work, which matters for any claim."
+},
+{
+"by": "Santosh",
+"q": "Can I at least drink some water?",
+"a": "Not by mouth for now, because you may need an operation soon. The drip is giving you the fluid your kidneys need."
+}
+],
+"push": [
+{
+"when": "advises admission",
+"s": "Santosh",
+"l": "Then my job is gone. The contractor doesn't keep a man who lies in hospital."
+},
+{
+"when": "orders blood tests and waits for results",
+"s": "Mr. Kulkarni",
+"l": "Doctor, I really can't wait for reports. Tell me if he's coming or not."
+},
+{
+"when": "applies a bandage and gives a tablet",
+"s": "Santosh",
+"l": "My toes feel strange, doctor. Is that normal?"
+}
+]
+},
+"D": {
+"L": "D",
+"title": "Pain she thought was her period",
+"cell": "High stakes, no clock",
+"hi": true,
+"clk": false,
+"mins": 0,
+"setting": "Emergency department, private hospital, Indore. 9:30 pm, Wednesday.",
+"patient": "Priya Joshi, 29 years, female, primary school teacher",
+"with": "Sushila (Mother-in-law). Confident it is gas or period pain. Answers questions on Priya's behalf and stays close.",
+"hidden": "Ruptured left tubal ectopic pregnancy with hemoperitoneum",
+"story": [
+"Priya has had pain low on the left side of her abdomen since about three in the afternoon. It started as a dull ache during class and became sharp by evening. Twice while standing she felt her vision go dark, and once in the bathroom she had to hold the wall. Her husband is in Bhopal on work and returns on Friday.",
+"Her last normal period was about seven weeks ago. Last week she had two days of light spotting, which she took to be a late period. She and her husband are not planning a pregnancy yet and do not use contraception regularly. Three years ago she was treated with tablets for a pelvic infection. She does not want to talk about any of this in front of her mother-in-law.",
+"Sushila is sure this is gas or period pain and brought her to the hospital mainly because Priya nearly fell. Priya wants a painkiller injection and an antacid so she can sleep. She is class teacher for Class 4 and has exam duty at school tomorrow morning, and she worries about the principal's reaction if she misses it."
+],
+"opening": [
+{
+"s": "Priya",
+"l": "Doctor, just give me a painkiller injection and something for gas. I have exam duty at school tomorrow."
+},
+{
+"s": "Sushila",
+"l": "It's her period pain. Every month she has this. Today it's a little more."
+}
+],
+"deadline": "",
+"clock": [],
+"pressure": "Mother-in-law's presence and confident explanation, privacy around sexual and menstrual history, husband absent, and worry about missing work tomorrow. Tomorrow's duty is 10 hours away and is not a deadline inside the consultation.",
+"req": [
+"Painkiller injection",
+"Antacid",
+"Go home to sleep"
+],
+"vitals": [
+"Heart rate 104 /min sitting, 122 /min standing",
+"Blood pressure 104/68 mmHg sitting, 90/60 mmHg standing",
+"Respiratory rate 18 /min",
+"SpO2 99% on room air",
+"Temperature 36.9 °C"
+],
+"exam": [
+"Pale, uncomfortable, prefers to lie still",
+"Tenderness and guarding in the left lower abdomen, mild distension",
+"Cervical motion tenderness on pelvic examination (with consent and chaperone)",
+"Small amount of dark blood at the cervical os",
+"Left shoulder-tip pain reported when lying flat"
+],
+"results": [
+{
+"t": "Urine pregnancy test",
+"r": "Positive"
+},
+{
+"t": "Serum beta-hCG",
+"r": "2,600 mIU/mL"
+},
+{
+"t": "Transvaginal ultrasound",
+"r": "No intrauterine gestational sac. 3 cm complex mass in the left adnexa. Moderate free fluid in the pouch of Douglas, extending above the uterus."
+},
+{
+"t": "Hemoglobin",
+"r": "9.4 g/dL"
+},
+{
+"t": "Blood group",
+"r": "B Rh negative"
+},
+{
+"t": "Coagulation profile",
+"r": "Within normal range"
+},
+{
+"t": "Urine microscopy",
+"r": "No white cells, no nitrite"
+}
+],
+"summary": "Case summary. 29-year-old woman with left lower abdominal pain for about six hours and near-fainting on standing. Heart rate rises and blood pressure falls when she stands. Family attributes the pain to gas or her period. Any woman of reproductive age with abdominal pain and dizziness needs a pregnancy test before other explanations are accepted.",
+"dx": [
+{
+"n": "Ectopic pregnancy, possibly ruptured",
+"lik": "High",
+"basis": "Reproductive age, one-sided pain, postural drop in blood pressure. Menstrual history needed."
+},
+{
+"n": "Ruptured or hemorrhagic ovarian cyst",
+"lik": "Moderate",
+"basis": "One-sided pain with signs of blood loss"
+},
+{
+"n": "Ovarian torsion",
+"lik": "Low to moderate",
+"basis": "One-sided pain"
+},
+{
+"n": "Miscarriage",
+"lik": "Low to moderate",
+"basis": "Depends on menstrual history and bleeding"
+}
+],
+"must": "Must not miss. Ectopic pregnancy with internal bleeding. Postural changes in vitals can come before a drop in resting BP in young women.",
+"sq": [
+"(Privately) Last normal period and any recent spotting",
+"(Privately) Possibility of pregnancy and contraception",
+"Fainting or near-fainting",
+"Shoulder-tip pain when lying down",
+"(Privately) Previous pelvic infection, tubal surgery or ectopic pregnancy",
+"Bowel and urinary symptoms",
+"Medicines taken today",
+"Whom she wants informed"
+],
+"tests": [
+{
+"t": "Urine pregnancy test",
+"why": "Fastest single test that changes the working diagnosis"
+},
+{
+"t": "Serum beta-hCG",
+"why": "Interpreted together with the ultrasound"
+},
+{
+"t": "Transvaginal ultrasound",
+"why": "Locates the pregnancy and shows free fluid"
+},
+{
+"t": "Hemoglobin, blood group and crossmatch",
+"why": "Blood loss and transfusion readiness"
+},
+{
+"t": "Orthostatic vitals, repeated",
+"why": "Tracks bleeding"
+}
+],
+"related": [
+{
+"t": "Coagulation profile",
+"when": "Before surgery"
+},
+{
+"t": "Repeat beta-hCG at 48 hours",
+"when": "Only if she is stable and a non-surgical route is being considered"
+},
+{
+"t": "Urine microscopy",
+"when": "To exclude a urinary cause"
+},
+{
+"t": "Liver and kidney function",
+"when": "If methotrexate is being considered"
+}
+],
+"meds": [
+{
+"n": "Two large-bore IV cannulas, crystalloid as needed",
+"use": "Volume support while surgery is arranged",
+"note": ""
+},
+{
+"n": "IV paracetamol, IV opioid if needed",
+"use": "Pain",
+"note": "Analgesia should not delay diagnosis"
+},
+{
+"n": "Anti-D immunoglobulin",
+"use": "Rh-negative woman with ectopic pregnancy",
+"note": "Dose per local protocol"
+},
+{
+"n": "Methotrexate (single-dose protocol)",
+"use": "Only for stable, unruptured ectopic pregnancy meeting criteria",
+"note": "Not suitable with significant free fluid or hemodynamic change"
+}
+],
+"cautions": [
+"Take the menstrual and sexual history privately, with a female chaperone, away from family.",
+"Avoid NSAIDs while internal bleeding is possible.",
+"Do not attribute pain to gas or periods before a pregnancy test."
+],
+"reqNote": "On the patient's request. Requested: painkiller injection and antacid. Analgesia is reasonable, but discharge on these without a pregnancy test would miss a likely ectopic pregnancy.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "Methotrexate as first treatment in stable ectopic pregnancy: 34%"
+},
+{
+"p": "Global medicine trends",
+"v": "Laparoscopic salpingectomy in ruptured ectopic pregnancy: 71%"
+},
+{
+"p": "Global medicine trends",
+"v": "Anti-D given to Rh-negative women with ectopic pregnancy: 68%"
+},
+{
+"p": "Cases at this hospital",
+"v": "Ectopic pregnancies treated in the last 12 months: 41, of which 17 were ruptured on arrival"
+},
+{
+"p": "Cases at this hospital",
+"v": "In 9 of the 17, an earlier visit elsewhere had been recorded as gastritis or period pain"
+},
+{
+"p": "Cases reported globally",
+"v": "Dataset of 22,000 ectopic pregnancies: about 1 in 3 had no recognized risk factor"
+},
+{
+"p": "Cases reported globally",
+"v": "Shoulder-tip pain was reported in about 1 in 5 ruptured cases"
+}
+],
+"ref": "Take the history privately. Urine pregnancy test, then urgent transvaginal ultrasound, hemoglobin, group and crossmatch. With free fluid above the uterus and postural changes, this is a surgical emergency: urgent gynecology, two large-bore lines, nil by mouth, consent for laparoscopy. Methotrexate is not appropriate. Anti-D after surgery. With Priya's permission, call her husband and explain to Sushila what Priya agrees to share.",
+"scored": "Key actions scored: Pregnancy test done; History taken privately; Ultrasound obtained; Gynecology called urgently; Not discharged on analgesia; Anti-D planned for Rh-negative status",
+"dq": [
+{
+"ask": "(Privately, with a female nurse) When was your last normal period? Was it like usual?",
+"ans": "About seven weeks ago. Last week I had light spotting for two days. I thought my period had come late.",
+"why": "Amenorrhea with spotting raises suspicion of ectopic pregnancy."
+},
+{
+"ask": "(Privately) Is there any chance you could be pregnant? Do you use contraception?",
+"ans": "We're not planning yet. We don't use anything regularly. I didn't check. Please don't say this in front of my mother-in-law.",
+"why": "Establishes pregnancy risk and her privacy wishes."
+},
+{
+"ask": "Have you fainted or nearly fainted today?",
+"ans": "In the bathroom my eyes went dark and I held the wall. In school also when I stood up.",
+"why": "Postural symptoms suggest blood loss."
+},
+{
+"ask": "Do you have any pain in your shoulder, especially when lying down?",
+"ans": "Yes, my left shoulder hurts when I lie flat. I thought I slept wrong.",
+"why": "Shoulder-tip pain suggests blood irritating the diaphragm."
+},
+{
+"ask": "(Privately) Have you ever had a pelvic infection, surgery on your tubes, or a pregnancy outside the womb?",
+"ans": "Three years ago the doctor said I had an infection inside. I took tablets for two weeks.",
+"why": "Prior pelvic infection is a risk factor for tubal pregnancy."
+},
+{
+"ask": "Any vomiting, loose stools, or burning when you pass urine?",
+"ans": "No loose motions, no burning. I felt sick once.",
+"why": "Keeps gastrointestinal and urinary causes in the differential."
+},
+{
+"ask": "What have you taken for the pain today?",
+"ans": "Two antacid tablets and one painkiller from the school first-aid box.",
+"why": "Medication history, and NSAID exposure."
+},
+{
+"ask": "Who would you like us to call, and what would you like your mother-in-law to know?",
+"ans": "Please call my husband first. You can tell her it's a problem with the tube, but let me tell her about the pregnancy.",
+"why": "Respects confidentiality in a triadic encounter."
+}
+],
+"pq": [
+{
+"by": "Priya",
+"q": "Can't you just give the injection? I have exam duty at school tomorrow.",
+"a": "A painkiller would mask what's happening. Your pregnancy test is positive, and the scan shows the pregnancy is in your left tube and bleeding inside your belly. You need an operation tonight. I'll give you a certificate for school."
+},
+{
+"by": "Sushila",
+"q": "It's her period. Why are you doing a pregnancy test?",
+"a": "We do this test for every woman her age who comes in with belly pain. I'll explain the results to Priya first, and she can decide what to share."
+},
+{
+"by": "Priya",
+"q": "(Privately) Is it a baby? Can it be saved?",
+"a": "The pregnancy is growing in the tube, not in the womb. It can't continue there, and it's causing bleeding. I'm sorry. Treating it tonight protects you and your chances of a healthy pregnancy later."
+},
+{
+"by": "Priya",
+"q": "Will I still be able to have children?",
+"a": "Many women go on to have healthy pregnancies after this, even if one tube has to be removed. The surgeon will discuss with you what they find and what they can keep."
+},
+{
+"by": "Sushila",
+"q": "Can't you give a medicine instead of an operation?",
+"a": "There is a medicine for small ectopic pregnancies that haven't burst, in women whose blood pressure is steady. Hers has bled and her pressure drops when she stands. The medicine isn't safe for her tonight."
+},
+{
+"by": "Priya",
+"q": "Why do I need an extra injection because of my blood group?",
+"a": "Your blood group is negative. The injection stops your body from making antibodies that could affect a baby in a future pregnancy."
+}
+],
+"push": [
+{
+"when": "asks Sushila to step out",
+"s": "Sushila",
+"l": "I'm her mother here. Whatever you ask, ask in front of me."
+},
+{
+"when": "orders a pregnancy test and ultrasound",
+"s": "Sushila",
+"l": "We don't need all this. It's the same pain every month."
+},
+{
+"when": "advises surgery tonight",
+"s": "Priya",
+"l": "My husband isn't here. Can't we wait until he drives back from Bhopal?"
+}
+]
+},
+"E": {
+"L": "E",
+"title": "Pain before the new job",
+"cell": "Low stakes, clock (45 minutes)",
+"hi": false,
+"clk": true,
+"mins": 45,
+"setting": "Emergency department, private hospital, Hyderabad. 6:30 am, Sunday.",
+"patient": "Imran Shaikh, 34 years, male, accountant, joining a new firm",
+"with": "Farhan (Younger brother). Drove him in. Anxious about the train and backs every demand Imran makes.",
+"hidden": "Uncomplicated left renal colic from a 5 mm distal ureteric stone, afebrile, normal kidney function",
+"story": [
+"Imran starts a new job in Bengaluru tomorrow morning. His train leaves Secunderabad at 7:40 am, and the station is 20 minutes away, so he has to leave the hospital by about 7:15. His bags are in his brother's car outside.",
+"He woke at 4 am with severe pain in his left lower back that comes in waves every few minutes and runs down to his groin. He vomited once. At 4:30 he took two tablets his brother had at home. Three years ago he had a similar episode and passed a small stone after two days. He has no fever.",
+"Imran is restless and cannot sit still on the trolley. He has read that a CT scan is the best test and that stones can be removed with a laser. He wants a CT now, the strongest painkiller the hospital has, and the stone taken out before he leaves, so it does not trouble him in his first week."
+],
+"opening": [
+{
+"s": "Imran",
+"l": "Doctor, do a CT scan now and take the stone out. And give me the strongest painkiller you have. My train is at 7:40."
+},
+{
+"s": "Farhan",
+"l": "He starts his new job tomorrow. Whatever is fastest, please."
+}
+],
+"deadline": "Must leave by 7:15 am to catch the 7:40 am train",
+"clock": [
+{
+"m": "10",
+"s": "Farhan",
+"l": "Bhai, it's 6:40. We have half an hour."
+},
+{
+"m": "25",
+"s": "Imran",
+"l": "Is the CT done yet? I have to go in twenty minutes."
+},
+{
+"m": "38",
+"s": "Farhan",
+"l": "If we leave now we'll just make it."
+}
+],
+"pressure": "",
+"req": [
+"CT scan now",
+"Strongest painkiller",
+"Stone removed before leaving"
+],
+"vitals": [
+"Heart rate 98 /min",
+"Blood pressure 140/88 mmHg",
+"Respiratory rate 18 /min",
+"SpO2 99% on room air",
+"Temperature 36.9 °C"
+],
+"exam": [
+"Restless, changing position constantly",
+"Left renal angle tenderness",
+"Abdomen soft, no guarding, no rebound",
+"Testes normal, no swelling or tenderness",
+"No abdominal mass or pulsatile mass"
+],
+"results": [
+{
+"t": "Urine dipstick and microscopy",
+"r": "Blood 2+, red cells 30–40 per high-power field, leukocytes negative, nitrite negative"
+},
+{
+"t": "Serum creatinine",
+"r": "0.9 mg/dL"
+},
+{
+"t": "Complete blood count",
+"r": "WBC 9,800 /µL, otherwise normal"
+},
+{
+"t": "Bedside ultrasound (kidney and bladder)",
+"r": "Mild left hydronephrosis. Right kidney normal."
+},
+{
+"t": "Low-dose non-contrast CT (KUB)",
+"r": "5 mm stone in the distal left ureter near the bladder. Mild left hydroureteronephrosis. No other stones."
+}
+],
+"summary": "Case summary. 34-year-old man with severe left-sided back pain since 4 am and one episode of vomiting. Restless on the trolley. Afebrile, vital signs normal apart from mild tachycardia. The pattern suggests renal colic. Fever, urinary infection and testicular causes should be excluded.",
+"dx": [
+{
+"n": "Left ureteric stone (renal colic)",
+"lik": "High",
+"basis": "Severe flank pain with restlessness. Ask about radiation and previous stones."
+},
+{
+"n": "Pyelonephritis or infected obstructed kidney",
+"lik": "Low",
+"basis": "Afebrile. Check urine and ask about urinary symptoms."
+},
+{
+"n": "Testicular torsion",
+"lik": "Low",
+"basis": "Groin pain in a young man. Examine the testes."
+},
+{
+"n": "Musculoskeletal back pain",
+"lik": "Low",
+"basis": "Does not explain vomiting or colicky pain"
+}
+],
+"must": "Must not miss. An obstructed kidney with infection (fever, rigors, raised WBC) needs urgent drainage. Testicular torsion in groin pain.",
+"sq": [
+"Radiation and whether the pain comes in waves",
+"Fever, shivering, burning urine, blood in urine",
+"Previous stones",
+"Testicular pain or swelling",
+"Reasons to avoid NSAIDs",
+"Ability to keep fluids down",
+"Medicines taken at home",
+"Access to care over the next week"
+],
+"tests": [
+{
+"t": "Urine dipstick and microscopy",
+"why": "Supports the diagnosis, screens for infection"
+},
+{
+"t": "Serum creatinine",
+"why": "Kidney function, and safety of NSAIDs"
+},
+{
+"t": "Bedside ultrasound",
+"why": "Shows obstruction without radiation, quick"
+}
+],
+"related": [
+{
+"t": "Low-dose non-contrast CT (KUB)",
+"when": "If the diagnosis is uncertain, or stone size and position will change management. Can be done at follow-up."
+},
+{
+"t": "CBC",
+"when": "If infection is suspected"
+},
+{
+"t": "Urine culture",
+"when": "If dipstick suggests infection"
+},
+{
+"t": "Stone analysis, serum calcium and uric acid",
+"when": "After the stone passes, for prevention"
+}
+],
+"meds": [
+{
+"n": "Diclofenac 75 mg IM or ketorolac IV/IM",
+"use": "First-line analgesia for renal colic",
+"note": "Check creatinine, ulcer history and allergy"
+},
+{
+"n": "IV paracetamol 1 g",
+"use": "Add-on analgesia",
+"note": ""
+},
+{
+"n": "Ondansetron 4 mg IV or orally dissolving",
+"use": "Nausea and vomiting",
+"note": ""
+},
+{
+"n": "Tamsulosin 0.4 mg once daily, up to 4 weeks",
+"use": "Medical expulsive therapy for distal stones of about 5–10 mm",
+"note": "May cause dizziness on standing"
+},
+{
+"n": "Oral NSAID with food for a few days",
+"use": "Ongoing pain",
+"note": "With a short supply of paracetamol"
+},
+{
+"n": "Opioid",
+"use": "Only if NSAIDs are contraindicated or fail",
+"note": "Causes drowsiness while traveling"
+}
+],
+"cautions": [
+"Fever with an obstructing stone needs urgent urology, not discharge.",
+"Immediate stone removal is rarely needed for an uncomplicated stone of this size."
+],
+"reqNote": "On the patient's request. Requested: CT now, strongest painkiller, immediate removal. NSAIDs are the most effective first-line analgesic for renal colic. CT is optional here and can wait for follow-up. Removal is not indicated without infection, kidney injury or uncontrolled pain.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "NSAID as first analgesic for renal colic: 66%"
+},
+{
+"p": "Global medicine trends",
+"v": "Opioid used as first analgesic: 21%"
+},
+{
+"p": "Global medicine trends",
+"v": "Tamsulosin prescribed for distal stones of 5–10 mm: 58%"
+},
+{
+"p": "Global medicine trends",
+"v": "CT ordered at the first emergency visit: 47%"
+},
+{
+"p": "Cases at this hospital",
+"v": "Renal colic visits in the last 12 months: 1,120"
+},
+{
+"p": "Cases at this hospital",
+"v": "Admitted: 9%. Urgent stone procedure within 24 hours: 3%"
+},
+{
+"p": "Cases reported globally",
+"v": "Dataset of 160,000 renal colic visits: about 3 in 4 stones of 5 mm or less passed without a procedure"
+},
+{
+"p": "Cases reported globally",
+"v": "Repeat CT within 30 days in about 1 in 10 patients"
+}
+],
+"ref": "Give an IM or IV NSAID and an antiemetic, check urine and creatinine, and do a bedside ultrasound. CT is optional and can be arranged at follow-up. Start tamsulosin, give a few days of oral analgesia, a urine strainer, and a short letter for a urologist in Bengaluru. He can travel once pain is controlled, with clear advice to seek emergency care for fever, rigors, uncontrolled pain, persistent vomiting or no urine.",
+"scored": "Key actions scored: NSAID given as first-line analgesia; Urine checked for infection; Fever and testicular causes excluded; No immediate stone removal; Safety-net advice and follow-up arranged; Discharge compatible with the train",
+"dq": [
+{
+"ask": "Where did the pain start, where does it go, and does it come and go?",
+"ans": "It starts in my left back and goes to the front, down to the groin. Every few minutes it twists, then it eases a bit.",
+"why": "Classic colic pattern."
+},
+{
+"ask": "Have you had any fever, shivering, or burning when passing urine?",
+"ans": "No fever. The urine looked a bit pink this morning.",
+"why": "Screens for infected obstruction."
+},
+{
+"ask": "Have you had this before? What happened then?",
+"ans": "Three years ago. I passed a small stone after two days. Nobody tested it.",
+"why": "Previous stone raises the likelihood and suggests recurrence risk."
+},
+{
+"ask": "Any pain or swelling in your testicles?",
+"ans": "No, only on the side, near the groin.",
+"why": "Excludes torsion."
+},
+{
+"ask": "Do you have kidney disease, a stomach ulcer, or any reason you can't take painkillers like diclofenac?",
+"ans": "No. I take them sometimes for back pain. No problem.",
+"why": "Safety of NSAIDs."
+},
+{
+"ask": "Can you keep water down?",
+"ans": "I vomited once at home. Now I can drink a little.",
+"why": "Determines oral therapy and hydration."
+},
+{
+"ask": "What did you take at home, and when?",
+"ans": "Two tablets my brother had, around 4:30. I don't know the name.",
+"why": "Avoids doubling the same drug."
+},
+{
+"ask": "Will you have access to a hospital in Bengaluru in the next few days?",
+"ans": "My office is in Whitefield. I don't know any doctors there yet.",
+"why": "Plans follow-up and safety-netting."
+}
+],
+"pq": [
+{
+"by": "Imran",
+"q": "Why won't you do a CT right now? I need to know.",
+"a": "With your history and these results, this is very likely a stone. The ultrasound shows the kidney is only mildly blocked. A CT would give the exact size, but it won't change what we do this morning. Your urologist in Bengaluru can order one if it doesn't pass."
+},
+{
+"by": "Imran",
+"q": "Give me the strongest painkiller you have.",
+"a": "For stone pain, the anti-inflammatory injection works better than most stronger drugs, and it won't make you drowsy on the train. If you still have pain in twenty minutes, I'll add another medicine."
+},
+{
+"by": "Imran",
+"q": "Can't you just take the stone out now?",
+"a": "Most stones this size pass on their own within a few days to a few weeks. Taking it out means a procedure under anesthesia, and you'd miss the train. We remove stones that don't pass, that cause infection, or when the pain can't be controlled."
+},
+{
+"by": "Farhan",
+"q": "Is it safe for him to travel for ten hours?",
+"a": "Yes, if the pain settles here and he has no fever. He'll have tablets and a letter. If he gets fever, shivering, can't keep water down, or stops passing urine, he should go to the nearest emergency department."
+},
+{
+"by": "Imran",
+"q": "What can I do to help it pass?",
+"a": "Drink enough to keep your urine pale, take the tablet that relaxes the tube, and pass urine through the strainer. If you catch the stone, keep it so it can be tested."
+},
+{
+"by": "Imran",
+"q": "Will this keep happening?",
+"a": "After a second stone, it's quite likely to happen again. Testing the stone and a few blood and urine tests later will show what's causing them and how to prevent more."
+}
+],
+"push": [
+{
+"when": "says to wait 20 minutes to see if the injection works",
+"s": "Imran",
+"l": "Twenty minutes? My train is at 7:40."
+},
+{
+"when": "declines a CT",
+"s": "Imran",
+"l": "So you don't actually know. What if it's something else?"
+},
+{
+"when": "advises admission or a procedure today",
+"s": "Farhan",
+"l": "He can't stay. He'll lose the job before he starts."
+}
+]
+},
+"F": {
+"L": "F",
+"title": "Cook and the hot oil",
+"cell": "Low stakes, no clock",
+"hi": false,
+"clk": false,
+"mins": 0,
+"setting": "Casualty, government general hospital, Kochi. 3:00 pm, Monday.",
+"patient": "Joseph Varghese, 31 years, male, line cook, restaurant",
+"with": "",
+"hidden": "Superficial partial-thickness scald burn of the left forearm, about 1% of body surface area",
+"story": [
+"At about 2:15 pm, during the lunch rush, a colleague lowered a wet basket into the fryer and hot oil splashed across Joseph's left forearm. He held it under the tap for about a minute, then a co-worker put toothpaste on it and gave him ice wrapped in a cloth. He came to the hospital by auto, alone.",
+"The manager told him to go and get it seen and to come back to work when he can. There is no shift waiting for him today. Joseph is paid per shift and sends most of his money to his mother in Kottayam. Last year a friend at another restaurant got an infected burn and was off for a month, and that is what Joseph is afraid of.",
+"He shares a room near the restaurant with three other cooks. He wants an antibiotic injection to stop infection, and the strongest cream the hospital has, so he can be back at the fryer in a day or two."
+],
+"opening": [
+{
+"s": "Joseph",
+"l": "Doctor, give me an antibiotic injection so it doesn't get pus. And the strongest cream. I can't be off work for long."
+}
+],
+"deadline": "",
+"clock": [],
+"pressure": "Loss of daily wages, fear of a long absence based on a friend's experience, and living without anyone to help with dressings.",
+"req": [
+"Antibiotic injection",
+"Strongest cream"
+],
+"vitals": [
+"Heart rate 88 /min",
+"Blood pressure 124/78 mmHg",
+"Respiratory rate 16 /min",
+"SpO2 99% on room air",
+"Temperature 36.8 °C",
+"Pain score 7/10"
+],
+"exam": [
+"Burn of about 7 × 6 cm on the dorsal left forearm, roughly the size of his palm",
+"Pink, moist base with intact and partly broken blisters. Blanches on pressure. Very painful to touch.",
+"Does not cross the wrist or elbow, not circumferential",
+"Toothpaste residue over the wound",
+"No burns to face, neck or hands. No singed nasal hair, voice normal."
+],
+"results": [
+{
+"t": "Random blood glucose",
+"r": "104 mg/dL"
+},
+{
+"t": "Wound swab",
+"r": "Not processed at first visit. Indicated only if signs of infection appear."
+}
+],
+"summary": "Case summary. 31-year-old cook with a hot-oil burn to the left forearm about 45 minutes ago. Triage note records a palm-sized blistered burn, about 1% of body surface area, with toothpaste on the wound. No burns to the face or hands noted. Tetanus status not recorded.",
+"dx": [
+{
+"n": "Superficial partial-thickness burn",
+"lik": "High",
+"basis": "Blisters, moist pink base, blanching, painful"
+},
+{
+"n": "Deep partial-thickness areas",
+"lik": "Low",
+"basis": "Reassess at 48 hours, since depth can evolve"
+}
+],
+"must": "Must not miss. Features needing burns referral: deep or full-thickness burns, circumferential burns, burns crossing joints, hands, face, genitals or perineum, inhalation injury, or larger surface area. None are present.",
+"sq": [
+"Time and mechanism of the burn",
+"First aid given, and for how long",
+"Burns elsewhere, breathing or voice change",
+"Last tetanus injection",
+"Diabetes or smoking",
+"Work tasks with this arm",
+"Help available for dressings"
+],
+"tests": [
+{
+"t": "No routine tests needed",
+"why": "Clinical assessment is enough for a small superficial burn"
+}
+],
+"related": [
+{
+"t": "Blood glucose",
+"when": "If diabetes is suspected, since it slows healing"
+},
+{
+"t": "Wound swab for culture",
+"when": "At review, only if there is spreading redness, pus, fever or increasing pain"
+}
+],
+"meds": [
+{
+"n": "Cool running water for 20 minutes",
+"use": "First aid, still useful up to 3 hours after the burn",
+"note": "Remove toothpaste gently with saline first. No ice."
+},
+{
+"n": "Paracetamol 1 g, up to four times a day",
+"use": "Pain",
+"note": ""
+},
+{
+"n": "Ibuprofen 400 mg three times a day with food",
+"use": "Pain",
+"note": "If no contraindication"
+},
+{
+"n": "Tetanus toxoid (Td) booster",
+"use": "Uncertain tetanus status, wound in a kitchen setting",
+"note": ""
+},
+{
+"n": "Non-adherent dressing (paraffin gauze or silicone), with absorbent layer",
+"use": "Wound cover",
+"note": "Review at 48 hours"
+}
+],
+"cautions": [
+"No systemic antibiotics for a clean, small superficial burn. They do not prevent wound infection here.",
+"Silver sulfadiazine is not recommended for superficial partial-thickness burns and may slow healing.",
+"Manage blisters per local protocol. Advise him not to prick them at home."
+],
+"reqNote": "On the patient's request. Requested: antibiotic injection and strongest cream. Neither is indicated. Cooling, cleaning, a non-adherent dressing, analgesia and a tetanus booster are the appropriate treatment.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "Systemic antibiotics prescribed for minor burns at the first visit: 38%, with no difference in later infection"
+},
+{
+"p": "Global medicine trends",
+"v": "Silver sulfadiazine used on superficial partial-thickness burns: 44%"
+},
+{
+"p": "Global medicine trends",
+"v": "Tetanus booster given when status was unknown: 61%"
+},
+{
+"p": "Cases at this hospital",
+"v": "Minor burns treated in casualty in the last 12 months: 640"
+},
+{
+"p": "Cases at this hospital",
+"v": "Kitchen and restaurant workers: 212. Returned with wound infection: 4%"
+},
+{
+"p": "Cases reported globally",
+"v": "Dataset of 90,000 minor burns: adequate cooling with running water before arrival in about 1 in 3"
+},
+{
+"p": "Cases reported globally",
+"v": "Home remedies such as toothpaste, butter or ice reported in about 2 in 5"
+}
+],
+"ref": "Clean off the toothpaste and cool with running water for 20 minutes. Paracetamol and ibuprofen. Tetanus booster. Non-adherent dressing with review at 48 hours. No antibiotics and no silver sulfadiazine. Expect healing in about two weeks. He can return to work with the dressing covered and dry, away from fryer heat for the first week if possible. Offer a fitness note and explain signs of infection.",
+"scored": "Key actions scored: Wound cooled and cleaned; No systemic antibiotic; Non-adherent dressing applied; Tetanus booster given; Return-to-work advice and review arranged",
+"dq": [
+{
+"ask": "What burned you, and at what time?",
+"ans": "Fryer oil, around quarter past two. The basket was wet and the oil jumped.",
+"why": "Mechanism and time since injury guide cooling and depth."
+},
+{
+"ask": "What did you do for it before coming here?",
+"ans": "Cold tap for a minute, then toothpaste and some ice in a cloth. A friend said toothpaste stops blisters.",
+"why": "Cooling was inadequate. Residue must be removed."
+},
+{
+"ask": "Did oil reach your face, eyes, neck or chest? Any trouble breathing or change in voice?",
+"ans": "Only the arm. Some drops fell on my apron.",
+"why": "Excludes other burns and inhalation."
+},
+{
+"ask": "When did you last have a tetanus injection?",
+"ans": "In school, I think. Not after that.",
+"why": "Indicates a booster."
+},
+{
+"ask": "Do you have diabetes or any illness that slows healing? Do you smoke?",
+"ans": "No sugar. I smoke a few a day.",
+"why": "Healing risk factors."
+},
+{
+"ask": "What do you do at work with this arm?",
+"ans": "I work the fryer and the grill. I use both hands all the time.",
+"why": "Shapes return-to-work advice."
+},
+{
+"ask": "Who can help you change the dressing or bring you back for review?",
+"ans": "Nobody really. I stay with three other cooks. I can come back myself.",
+"why": "Plans dressing review in the clinic rather than at home."
+}
+],
+"pq": [
+{
+"by": "Joseph",
+"q": "Please give me an antibiotic injection so it doesn't get pus.",
+"a": "A clean burn like this doesn't need antibiotics. They don't stop this kind of wound from getting infected, and they have side effects. What stops infection is cleaning it now, a proper dressing, and keeping it covered and dry. If it does get infected, we'll treat it then."
+},
+{
+"by": "Joseph",
+"q": "Give me the strongest cream you have.",
+"a": "Strong creams can slow healing in this kind of burn. A non-stick dressing left on for two days heals it faster. I'll put it on now and check it on Wednesday."
+},
+{
+"by": "Joseph",
+"q": "How many days will I be off? I get paid per shift.",
+"a": "Burns like this usually heal in about two weeks. You can go back in a day or two with the arm covered, but keep it away from fryer heat and grease for the first week if your manager can move you. I'll write a note saying that."
+},
+{
+"by": "Joseph",
+"q": "Should I burst the blisters?",
+"a": "No. I'll deal with them here. Don't prick them at home."
+},
+{
+"by": "Joseph",
+"q": "Will it leave a mark?",
+"a": "At this depth, burns usually heal without a deep scar if they stay clean. The skin may look darker for a few months. Keep it out of the sun once it's healed."
+},
+{
+"by": "Joseph",
+"q": "Was the toothpaste wrong?",
+"a": "It holds the heat in and makes the wound harder to clean. Next time, cool running water for twenty minutes and nothing else."
+}
+],
+"push": [
+{
+"when": "declines antibiotics",
+"s": "Joseph",
+"l": "My friend got pus and was off for a month. Just one injection, doctor, please."
+},
+{
+"when": "gives a tetanus injection",
+"s": "Joseph",
+"l": "You won't give the antibiotic, but this injection you'll give?"
+},
+{
+"when": "advises keeping away from the fryer",
+"s": "Joseph",
+"l": "If I don't stand at the fryer, they'll give my shifts to someone else."
+}
+]
+},
+"G": {
+"L": "G",
+"title": "Nosebleed before the presentation",
+"cell": "Low stakes, clock (30 minutes)",
+"hi": false,
+"clk": true,
+"mins": 30,
+"setting": "Emergency department, private hospital, Bengaluru. 7:50 am, Tuesday.",
+"patient": "Rajiv Nair, 45 years, male, regional sales director",
+"with": "Anita (Wife). Frightened because Rajiv's father died of a brain hemorrhage. Wants a head scan and for him to stay in bed today.",
+"hidden": "Anterior epistaxis from Little's area, with elevated blood pressure after missed antihypertensive doses",
+"story": [
+"Rajiv's nose started bleeding from the right nostril at about 7:10 am, after he blew it in the shower. He tilted his head back, as Anita told him to, and swallowed some blood. It has not stopped in 40 minutes and he has soaked through six or seven tissues.",
+"At 9 am he is presenting the annual plan to a client's board, a meeting his team has worked on for two months. The office is 30 minutes away, so he wants to leave by 8:20. He has had high blood pressure for four years and takes amlodipine, but missed three days this week while traveling. He uses a steroid nasal spray for allergies most days.",
+"Rajiv's father died of a brain bleed at 62, and Anita has been anxious about Rajiv's blood pressure for a while. She wants a head scan and wants him in bed today. Rajiv wants the bleeding stopped and nothing else."
+],
+"opening": [
+{
+"s": "Rajiv",
+"l": "Just stop the bleeding, please. I have a board presentation at nine and I need to leave by 8:20."
+},
+{
+"s": "Anita",
+"l": "Doctor, his BP is high and his father died of a brain bleed. Please do a head scan."
+}
+],
+"deadline": "Must leave by 8:20 am for a 9:00 am board presentation",
+"clock": [
+{
+"m": "7",
+"s": "Rajiv",
+"l": "It's eight already. How long will this take?"
+},
+{
+"m": "15",
+"s": "Rajiv",
+"l": "My team is calling. I have to tell them if I'm coming."
+},
+{
+"m": "25",
+"s": "Anita",
+"l": "Forget the meeting. What if something is happening in his head?"
+}
+],
+"pressure": "",
+"req": [
+"Stop the bleeding quickly (patient)",
+"Head scan and bed rest (wife)"
+],
+"vitals": [
+"Heart rate 96 /min",
+"Blood pressure 172/100 mmHg on arrival; 150/94 mmHg after 20 minutes once bleeding stops",
+"Respiratory rate 16 /min",
+"SpO2 99% on room air",
+"Temperature 36.7 °C"
+],
+"exam": [
+"Alert, anxious, holding tissues to the right nostril",
+"After clot removal: active ooze from a visible vessel on the anterior septum (Little's area), right side",
+"No blood running down the posterior pharynx once the front of the nose is compressed",
+"Neurological examination normal. No headache, no visual change.",
+"No bruising elsewhere, no gum bleeding"
+],
+"results": [
+{
+"t": "Hemoglobin",
+"r": "14.2 g/dL"
+},
+{
+"t": "Platelet count",
+"r": "260,000 /µL"
+},
+{
+"t": "PT/INR",
+"r": "Within normal range"
+},
+{
+"t": "CT head",
+"r": "No abnormality seen"
+}
+],
+"summary": "Case summary. 45-year-old man with a right-sided nosebleed for 40 minutes that started after blowing his nose. Amlodipine for hypertension on record, no anticoagulants on record. BP 172/100 on arrival. No trauma recorded at triage. The picture fits anterior epistaxis.",
+"dx": [
+{
+"n": "Anterior epistaxis (Little's area)",
+"lik": "High",
+"basis": "One side, started after nose blowing. Ask about nasal sprays and previous bleeds."
+},
+{
+"n": "Posterior epistaxis",
+"lik": "Low",
+"basis": "Swallowed blood explained by tilting head back. Check after anterior compression."
+},
+{
+"n": "Bleeding disorder or anticoagulant effect",
+"lik": "Low",
+"basis": "No anticoagulants on record. Confirm, and ask about other bleeding."
+}
+],
+"must": "Must not miss. Posterior bleeding, anticoagulant use, or neurological symptoms suggesting a hypertensive emergency. None present so far.",
+"sq": [
+"Side, and blood running down the throat",
+"Trauma",
+"Blood thinners, including over-the-counter aspirin",
+"Whether BP tablets have been taken",
+"Headache, vision change, weakness or confusion",
+"Previous nosebleeds, easy bruising",
+"Nasal sprays",
+"Amount of blood lost, faintness"
+],
+"tests": [
+{
+"t": "Blood pressure, repeated after bleeding stops",
+"why": "Initial readings are often raised by anxiety"
+},
+{
+"t": "Anterior rhinoscopy after clot removal",
+"why": "Locates the bleeding point"
+}
+],
+"related": [
+{
+"t": "Hemoglobin",
+"when": "If bleeding was heavy or prolonged, or he looks pale"
+},
+{
+"t": "Platelets and coagulation",
+"when": "If on anticoagulants, recurrent bleeds, or bleeding from other sites"
+},
+{
+"t": "CT head",
+"when": "Not indicated without trauma or neurological symptoms"
+}
+],
+"meds": [
+{
+"n": "Firm pressure on the soft part of the nose for 10–15 minutes, leaning forward",
+"use": "First measure",
+"note": ""
+},
+{
+"n": "Topical vasoconstrictor (e.g., oxymetazoline) with topical lidocaine on a pledget",
+"use": "Vasoconstriction and anesthesia before cautery",
+"note": ""
+},
+{
+"n": "Silver nitrate cautery of the visible vessel",
+"use": "Definitive control of an anterior bleeding point",
+"note": "One side of the septum only"
+},
+{
+"n": "Anterior nasal pack or tampon",
+"use": "If cautery fails",
+"note": "Needs review for removal"
+},
+{
+"n": "Topical tranexamic acid",
+"use": "Option where available",
+"note": ""
+},
+{
+"n": "Petroleum jelly or antiseptic nasal cream for 1–2 weeks",
+"use": "Prevent recurrence",
+"note": ""
+}
+],
+"cautions": [
+"Do not lower blood pressure acutely. Advise him to take his usual amlodipine and get BP rechecked within a week.",
+"If he uses a steroid nasal spray, pause it for about a week and use saline instead.",
+"Advise against blowing the nose, heavy lifting and hot drinks for 24–48 hours."
+],
+"reqNote": "On the patient's request. Requested: stop the bleed (patient); head scan and bed rest (wife). Cautery is appropriate and quick. A head scan is not indicated without trauma or neurological symptoms. Bed rest is not needed.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "Silver nitrate cautery for anterior bleeds with a visible vessel: 54%"
+},
+{
+"p": "Global medicine trends",
+"v": "Anterior packing as the first intervention: 31%"
+},
+{
+"p": "Global medicine trends",
+"v": "Topical tranexamic acid used: 18%"
+},
+{
+"p": "Global medicine trends",
+"v": "CT head ordered for isolated nosebleed: 6%, with no relevant findings"
+},
+{
+"p": "Cases at this hospital",
+"v": "Nosebleed visits in the last 12 months: 410"
+},
+{
+"p": "Cases at this hospital",
+"v": "Anterior source: 92%. Admitted: 3%"
+},
+{
+"p": "Cases reported globally",
+"v": "Dataset of 75,000 nosebleed visits: raised BP on arrival in about 2 in 5, mostly settling within an hour"
+},
+{
+"p": "Cases reported globally",
+"v": "Return with another bleed within 7 days: about 1 in 12"
+}
+],
+"ref": "Sit him up and leaning forward, and apply firm pressure. Clear clots, apply topical vasoconstrictor and anesthetic, and cauterize the visible vessel. Recheck BP after 20 minutes. No head scan and no blood tests are needed. Observe for 15 minutes after hemostasis, then he can attend his meeting. Advise him to take today's amlodipine, have BP reviewed by his doctor within a week, pause the steroid spray, and use petroleum jelly. Explain to Anita why a scan won't help.",
+"scored": "Key actions scored: Bleeding point identified and treated; BP rechecked after bleeding stopped; No CT head ordered; No acute BP lowering; BP follow-up arranged; Discharge compatible with 8:20 departure",
+"dq": [
+{
+"ask": "Which side is it, and do you feel blood running down your throat?",
+"ans": "Right side. Some went down my throat when I tilted my head back like my wife said.",
+"why": "Unilateral anterior source is likely. Swallowing is explained by head position."
+},
+{
+"ask": "How did it start? Any knock to the face?",
+"ans": "I blew my nose in the shower and it started. No injury.",
+"why": "Mechanism points to an anterior vessel."
+},
+{
+"ask": "Do you take any blood thinners, like aspirin, clopidogrel or warfarin?",
+"ans": "No. Only my BP tablet, and I missed it for three days this week.",
+"why": "Anticoagulants change management. Missed doses explain the BP."
+},
+{
+"ask": "Any headache, blurred vision, weakness, numbness or confusion?",
+"ans": "No. Just irritated.",
+"why": "Screens for hypertensive emergency or a neurological cause."
+},
+{
+"ask": "Has this happened before? Do you bruise easily or bleed from your gums?",
+"ans": "Small bleeds a few times when the AC dries my nose. Never this long. No gum bleeding.",
+"why": "Recurrent anterior bleeds, no sign of a bleeding disorder."
+},
+{
+"ask": "Do you use any nasal sprays?",
+"ans": "A steroid spray for allergy, most days for about a year.",
+"why": "Intranasal steroids are a known contributor."
+},
+{
+"ask": "How much blood would you say, and have you felt faint?",
+"ans": "Six or seven tissues soaked. I haven't felt faint.",
+"why": "Estimates volume. No need for Hb check."
+}
+],
+"pq": [
+{
+"by": "Rajiv",
+"q": "Can you stop it quickly? I have to be at the board meeting by nine.",
+"a": "Most likely, yes. It's coming from a small vessel at the front of your nose. I'll numb it and seal the vessel, which takes about fifteen minutes. Then I'd like you to sit for another fifteen to make sure it holds."
+},
+{
+"by": "Anita",
+"q": "His BP is 172 and his father had a brain bleed. Shouldn't he have a head scan?",
+"a": "A nosebleed doesn't mean there's bleeding in the head. He has no headache, weakness or confusion, so a scan won't tell us anything useful. His BP is high partly from stress and the missed tablets. It needs checking this week, not a scan today."
+},
+{
+"by": "Anita",
+"q": "Shouldn't he stay in bed today?",
+"a": "He doesn't need bed rest. For a day or two he should avoid heavy lifting, bending down, hot drinks and blowing his nose. He can go to his meeting."
+},
+{
+"by": "Rajiv",
+"q": "What if it starts again during the meeting?",
+"a": "Lean forward and pinch the soft part of your nose firmly for ten minutes by the clock, without letting go to check. If it doesn't stop after two tries, come back."
+},
+{
+"by": "Rajiv",
+"q": "Should I take an extra BP tablet now?",
+"a": "No. Take today's usual tablet and don't miss any more. Bringing the pressure down fast isn't needed and can make you dizzy. Get it checked within a week."
+},
+{
+"by": "Rajiv",
+"q": "Is my allergy spray causing this?",
+"a": "It can dry the lining of the nose. Stop it for a week and use saline spray. When you restart, point it toward the outside of the nostril, away from the middle."
+}
+],
+"push": [
+{
+"when": "asks him to wait 15 minutes after cautery",
+"s": "Rajiv",
+"l": "Fifteen more minutes? I'll be late."
+},
+{
+"when": "orders blood tests",
+"s": "Rajiv",
+"l": "Do you really need blood tests? I don't have time for reports."
+},
+{
+"when": "inserts a nasal pack",
+"s": "Rajiv",
+"l": "I can't stand in front of the board with this in my nose."
+}
+]
+},
+"H": {
+"L": "H",
+"title": "Student who fainted at the blood camp",
+"cell": "Low stakes, no clock",
+"hi": false,
+"clk": false,
+"mins": 0,
+"setting": "Emergency department, teaching hospital, Chandigarh. 12:20 pm, Friday.",
+"patient": "Arjun Mehra, 20 years, male, second-year engineering student",
+"with": "Kabir (Friend and classmate). Shaken by what he saw. Insists on a head scan because a cousin's seizure turned out to be a tumor.",
+"hidden": "Vasovagal syncope after first-time blood donation, with brief convulsive movements and full immediate recovery",
+"story": [
+"Arjun donated blood for the first time at the college camp, 350 mL. He had skipped breakfast and slept about four hours after studying late. About five minutes after donating, he stood up from the couch, felt hot and sick, saw spots, and went down. A volunteer caught him before he hit the floor.",
+"Kabir says Arjun was out for about ten seconds and that his hands jerked a few times. Arjun opened his eyes, knew where he was, and was embarrassed. He did not bite his tongue or wet himself. The camp medical officer gave him juice, laid him down with his legs raised, and advised a check-up because of the jerking. Kabir brought him to the emergency department on his scooter.",
+"Arjun now feels fine and wants to go back to the hostel and study for a class test tomorrow morning. Kabir is not convinced. He wants a head scan, and he wonders aloud whether Arjun should skip the test."
+],
+"opening": [
+{
+"s": "Kabir",
+"l": "Doctor, he fainted and his hands were shaking. That's a fit. Please do a head scan."
+},
+{
+"s": "Arjun",
+"l": "I'm fine now. I just want to go back and study."
+}
+],
+"deadline": "",
+"clock": [],
+"pressure": "Friend's insistence on a scan based on a family story, the student's embarrassment and wish to leave, and a class test the next morning that is not a deadline inside the consultation.",
+"req": [
+"Go back to study (patient)",
+"Head scan (friend)"
+],
+"vitals": [
+"Heart rate 76 /min lying, 84 /min standing",
+"Blood pressure 110/70 mmHg lying, 106/68 mmHg standing",
+"Respiratory rate 14 /min",
+"SpO2 99% on room air",
+"Temperature 36.6 °C",
+"Blood glucose 88 mg/dL"
+],
+"exam": [
+"Alert, oriented, talking normally",
+"No scalp swelling, bruising or tenderness",
+"No tongue bite",
+"Neurological examination normal",
+"Heart sounds normal, no murmur. Venipuncture site clean."
+],
+"results": [
+{
+"t": "12-lead ECG",
+"r": "Normal sinus rhythm, normal intervals, normal QTc"
+},
+{
+"t": "Hemoglobin",
+"r": "13.9 g/dL"
+},
+{
+"t": "CT head",
+"r": "No abnormality seen"
+}
+],
+"summary": "Case summary. 20-year-old man referred from a blood donation camp after fainting about five minutes after his first donation. Caught by a volunteer, no head injury recorded. Friend reports brief jerking. Now alert, with normal vital signs and glucose.",
+"dx": [
+{
+"n": "Vasovagal syncope related to blood donation",
+"lik": "High",
+"basis": "Clear trigger and quick recovery. Ask about warning symptoms."
+},
+{
+"n": "Convulsive syncope (brief jerks during a faint)",
+"lik": "High",
+"basis": "Jerks reported. Ask how long they lasted and how he recovered."
+},
+{
+"n": "Epileptic seizure",
+"lik": "Low",
+"basis": "Ask about confusion afterwards, tongue bite and incontinence"
+},
+{
+"n": "Cardiac syncope",
+"lik": "Low",
+"basis": "Ask about faints on exertion, palpitations and family history. Check ECG."
+}
+],
+"must": "Must not miss. Cardiac causes of syncope: fainting during exercise or lying down, chest pain, palpitations, abnormal ECG, or family history of sudden death at a young age.",
+"sq": [
+"Symptoms just before fainting",
+"Food, fluids and sleep before donating",
+"Duration of unconsciousness and of the jerks (from the friend)",
+"Confusion after waking",
+"Tongue bite or incontinence",
+"Previous faints, faints during exercise, chest pain, palpitations",
+"Family history of sudden death or rhythm problems",
+"Head injury"
+],
+"tests": [
+{
+"t": "Lying and standing blood pressure",
+"why": "Postural drop after donation"
+},
+{
+"t": "12-lead ECG",
+"why": "Low-cost screen for arrhythmia causes in any first faint"
+},
+{
+"t": "Blood glucose",
+"why": "He skipped breakfast"
+}
+],
+"related": [
+{
+"t": "Hemoglobin",
+"when": "If he looks pale or feels faint again"
+},
+{
+"t": "CT head",
+"when": "Not indicated without head injury or neurological signs"
+},
+{
+"t": "EEG or neurology referral",
+"when": "Not indicated after a single typical faint"
+}
+],
+"meds": [
+{
+"n": "Oral fluids, about 500 mL",
+"use": "Replace volume",
+"note": ""
+},
+{
+"n": "Food or a snack",
+"use": "Glucose",
+"note": ""
+},
+{
+"n": "No medication needed",
+"use": "",
+"note": ""
+}
+],
+"cautions": [
+"Advise against riding a two-wheeler, driving, or working at heights for the rest of the day.",
+"Report the reaction to the blood bank so it is recorded."
+],
+"reqNote": "On the patient's request. Requested: discharge (patient), head scan (friend). A head scan is not indicated. Discharge after fluids, food and a short period of observation is appropriate.",
+"sim": [
+{
+"p": "Global medicine trends",
+"v": "Managed with oral fluids and observation only after donation-related faint: 83%"
+},
+{
+"p": "Global medicine trends",
+"v": "ECG recorded: 41%"
+},
+{
+"p": "Global medicine trends",
+"v": "CT head ordered without head injury: 7%, with no relevant findings"
+},
+{
+"p": "Cases at this hospital",
+"v": "Donor reactions referred from blood camps in the last 12 months: 58"
+},
+{
+"p": "Cases at this hospital",
+"v": "First-time donors among these: 44. Admitted: none"
+},
+{
+"p": "Cases reported globally",
+"v": "Donor safety dataset of 2.1 million donations: fainting in about 1 in 300, more often in young first-time donors"
+},
+{
+"p": "Cases reported globally",
+"v": "Injury from a fall in about 1 in 10 of those who fainted"
+}
+],
+"ref": "Confirm the history with Kabir, check lying and standing BP and glucose, and record an ECG. Explain that brief jerks are common during a faint. No head scan and no seizure workup. Oral fluids and food, 30 minutes of observation, then discharge. No riding the scooter today. Advise a full meal before any future donation and telling staff he fainted. Fit for the test tomorrow.",
+"scored": "Key actions scored: Seizure features specifically asked about; Cardiac red flags screened; No CT head ordered; Fluids and observation; Advice against riding or driving today",
+"dq": [
+{
+"ask": "What did you feel just before you fainted?",
+"ans": "I stood up and felt hot all over, then sick, then I saw spots. Next thing, the volunteer was holding me.",
+"why": "A clear prodrome supports vasovagal syncope."
+},
+{
+"ask": "Did you eat or drink before donating? How did you sleep?",
+"ans": "No breakfast. I slept around three and woke at seven.",
+"why": "Contributing factors."
+},
+{
+"ask": "(To Kabir) How long was he out, and what did the shaking look like?",
+"ans": "Maybe ten seconds. His hands twitched a few times, then stopped, and he opened his eyes.",
+"why": "Brief jerks lasting seconds fit convulsive syncope."
+},
+{
+"ask": "When you woke up, were you confused or sleepy? Did you know where you were?",
+"ans": "I knew straight away. I was just embarrassed.",
+"why": "Absence of post-event confusion argues against a seizure."
+},
+{
+"ask": "Did you bite your tongue or wet yourself?",
+"ans": "No.",
+"why": "Further seizure features."
+},
+{
+"ask": "Have you ever fainted before, or during sport or exercise? Any chest pain or racing heart?",
+"ans": "Once at a vaccination in school. Never while playing cricket. No chest pain.",
+"why": "Previous vasovagal episode. No exertional faint."
+},
+{
+"ask": "Has anyone in your family died suddenly at a young age, or had heart rhythm problems?",
+"ans": "No, nobody.",
+"why": "Cardiac red flag."
+},
+{
+"ask": "Did you hit your head anywhere?",
+"ans": "The volunteer caught me. No bump.",
+"why": "No head injury, so no imaging indication."
+}
+],
+"pq": [
+{
+"by": "Kabir",
+"q": "His hands were shaking. That's a fit, isn't it? Shouldn't he get a head scan?",
+"a": "A few jerks are common during a faint, when the brain is short of blood for a few seconds. A fit usually lasts longer, and people are confused afterwards. He woke clear-headed and didn't hit his head, so a scan wouldn't show anything useful."
+},
+{
+"by": "Arjun",
+"q": "Can I go back to the hostel and study?",
+"a": "Yes. Drink something, eat, and sit with us for about half an hour. Don't ride the scooter today. Let Kabir take you, or take an auto."
+},
+{
+"by": "Arjun",
+"q": "Is something wrong with my heart?",
+"a": "Your heart tracing is normal, and this faint had a clear trigger. Come back if you ever faint during exercise or while lying down, or if you get chest pain or a racing heartbeat."
+},
+{
+"by": "Arjun",
+"q": "Can I donate blood again?",
+"a": "Usually, yes. Eat a proper meal, drink half a liter of water beforehand, and tell the staff you fainted last time. The blood bank will decide when."
+},
+{
+"by": "Kabir",
+"q": "Can you write a certificate so he can skip the test tomorrow?",
+"a": "He'll be fit tomorrow. I can write that he fainted after donating blood today and was treated here, if the college asks."
+},
+{
+"by": "Arjun",
+"q": "Will I be okay for the test?",
+"a": "Yes. Drink well, eat properly, and get a full night's sleep. That will help more than anything else."
+}
+],
+"push": [
+{
+"when": "declines a head scan",
+"s": "Kabir",
+"l": "If something happens to him tonight, who is responsible? Just do it to be safe."
+},
+{
+"when": "asks him to stay 30 minutes",
+"s": "Arjun",
+"l": "I'm fine, really. I'd rather be studying."
+},
+{
+"when": "orders an ECG",
+"s": "Arjun",
+"l": "Why my heart? Is something wrong?"
+}
+]
+}
+}

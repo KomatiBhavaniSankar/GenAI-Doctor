@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Doctor GenAI Simulation</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ok:'#1F7A4D',red:{DEFAULT:'#B3202A',dark:'#8A1620'},beige:{DEFAULT:'#F3EBDD',deep:'#E6D9C3'},ink:'#2A1A18'},
+fontFamily:{serif:['Fraunces','serif'],sans:['"Instrument Sans"','sans-serif']}}}}
+</script>
+<style>
+@media print{body *{visibility:hidden}#sheet,#sheet *{visibility:visible}#sheet{position:absolute;left:0;top:0;width:100%;border:0}.noprint{display:none!important}}
+.nav{scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav::-webkit-scrollbar{display:none}
+:focus-visible{outline:2px solid #B3202A;outline-offset:2px}
+</style>
+</head>
+<body class="bg-beige text-ink font-sans min-h-screen">
+<header id="top" class="hidden sticky top-0 z-20 bg-red text-white shadow-md pt-[env(safe-area-inset-top)]">
+  <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 h-12 flex items-center justify-between gap-3">
+    <span id="who" class="truncate min-w-0 text-sm sm:text-base font-medium"></span>
+    <span id="clk" class="shrink-0 font-serif text-lg sm:text-2xl tabular-nums"></span>
+  </div>
+  <div class="bg-red-dark"><nav id="nav" aria-label="Sections" class="nav mx-auto w-full max-w-5xl px-2 sm:px-4 pt-2 flex items-end gap-1 overflow-x-auto text-sm"></nav></div>
+</header>
+<main id="app" class="mx-auto w-full max-w-5xl px-4 sm:px-6 py-5 sm:py-8 pb-24"></main>
+<div id="bn" role="status" onclick="this.classList.add('hidden')" class="hidden fixed top-28 inset-x-3 sm:inset-x-auto sm:right-6 sm:w-96 z-30 bg-ink text-white rounded-2xl p-4 shadow-xl cursor-pointer"></div>
+<div id="toast" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 bg-ink text-white text-sm px-4 py-2 rounded-full z-30"></div>
+<script>
+const API='/api';
+let C=[];
+const S={doc:null,sid:null,c:null,page:null,t0:0,q:[],name:'',left:0,timer:null,items:[],plan:[],own:[],seg:[],who:'Doctor',auto:false,interim:'',recOn:false,rt0:0,cm:'',fp:{},appr:false,asked:{},rev:{},ord:{},tos:[]};
+const COL=['#4472C4','#8E5BBE','#DD8A1B','#7A5230','#D4BE12','#5BB5CC','#D45A9B','#5F6B7C'];
+const NAV=[['complaint','Complaint'],['record','Record'],['questions','Questions'],['findings','Findings'],['dx','Diagnosis'],['recs','Recommendations'],['plan','Treatment plan'],['records','Records'],['trends','Trends'],['rx','Prescription'],['fu','Follow-up plan']];
+const CAT={med:'Medicines',tst:'Tests',fu:'Follow-up'};
+const NOREC='Sorry, I don’t have access to hospital records. If I did, I would show the full history linked to this patient’s UHID.';
+const SIM='Draft case set. Simulated data, not for clinical use.';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);
+const send=(u,b)=>fetch(API+u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)}).then(r=>{if(!r.ok)throw 0;return r.json()});
+function log(t,l,ms){S.q.push({session_id:S.sid,doctor_id:S.doc,page:S.page,event_type:t,label:l??null,duration_ms:ms??null,client_ts:new Date().toISOString()})}
+function flush(beacon){if(!S.q.length||(!S.doc&&!beacon))return;const evs=S.q;S.q=[];const body=JSON.stringify({events:evs});
+ if(beacon)navigator.sendBeacon(API+'/events',new Blob([body],{type:'application/json'}));
+ else fetch(API+'/events',{method:'POST',headers:{'Content-Type':'application/json'},body}).then(r=>{if(!r.ok)throw 0}).catch(()=>{S.q=evs.concat(S.q)})}
+setInterval(()=>flush(),5000);
+document.addEventListener('visibilitychange',()=>log(document.hidden?'tab_hidden':'tab_visible'));
+addEventListener('pagehide',()=>{if(S.page)log('page_time',null,Date.now()-S.t0);flush(true)});
+document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(b)log('click',b.dataset.l||b.innerText.trim().slice(0,50))});
+function toast(m){const t=$('toast');t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),1800)}
+function go(p){if(S.page)log('page_time',null,Date.now()-S.t0);window.speechSynthesis&&speechSynthesis.cancel();S.page=p;S.t0=Date.now();log('page_view',p);render();scrollTo(0,0)}
+
+const grid='grid gap-3 md:grid-cols-2',card='bg-white rounded-2xl p-4 border border-beige-deep',
+ btn='bg-red text-white rounded-xl px-4 py-3 font-semibold active:bg-red-dark w-full',
+ ghost='border border-red text-red rounded-xl px-4 py-3 font-semibold',
+ inp='w-full rounded-xl border border-beige-deep bg-beige/50 px-3 py-2 text-base',
+ chk='mt-1 w-5 h-5 accent-[#B3202A]';
+const h2=(t,s)=>`<h2 class="font-serif text-2xl font-bold">${t}</h2>${s?`<p class="text-sm text-ink/70 mt-1 max-w-2xl">${s}</p>`:''}<div class="mb-4"></div>`;
+const h3=(t,m)=>`<h3 class="font-serif text-xl font-bold mb-2 ${m||'mt-7'}">${t}</h3>`;
+const stakes=c=>`<span class="text-xs font-semibold rounded-full px-2 py-0.5 ${c.hi?'bg-red text-white':'bg-ok/10 text-ok'}">${c.hi?'High stakes':'Low stakes'}</span>`;
+const fmt=ms=>{const s=Math.floor(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+const lik=l=>/^High|to high/.test(l)?'bg-red text-white':/Moderate|to moderate/.test(l)?'bg-amber-200 text-amber-900':'bg-stone-200 text-stone-700';
+const join=(a,b,c)=>a+(b?' — '+b:'')+(c?' — '+c:'');
+const inPlan=(c,t)=>S.plan.some(p=>p.c===c&&p.t===t);
+function tg(i){const it=S.items[i],k=S.plan.findIndex(p=>p.c===it.c&&p.t===it.t);
+ if(k<0){S.plan.push({c:it.c,t:it.t,src:it.src});log('add_to_sheet',it.c+': '+it.t.slice(0,60))}else{S.plan.splice(k,1);log('remove_from_plan',it.t.slice(0,60))}render()}
+function addOwn(c){const el=$('own_'+c),t=el.value.trim();if(!t)return;S.own.push({c,t,src:'own'});S.plan.push({c,t,src:'own'});log('add_own',c+': '+t.slice(0,60));render()}
+const rv=k=>{S.rev[k]=1;log('reveal',k);render()};
+function pickRow(it,i){const on=inPlan(it.c,it.t);
+ return `<label class="${card} flex gap-3 items-start cursor-pointer ${on?'border-red ring-1 ring-red':''}"><input type="checkbox" class="${chk}" ${on?'checked':''} onchange="tg(${i})"><span class="flex-1">${esc(it.t)}</span></label>`}
+function catBlock(c,glob,sub){const own=S.own.filter(o=>o.c===c);
+ const row=it=>{S.items.push(it);return pickRow(it,S.items.length-1)};
+ return `<section class="mt-6"><h3 class="font-serif text-xl font-bold mb-2">${CAT[c]}</h3><div class="grid gap-4 md:grid-cols-2">
+ <div><p class="text-sm font-semibold text-red mb-2">Global evidence-based</p><div class="space-y-2">${glob.map(t=>row({c,t,src:'global'})).join('')||'<p class="text-sm text-ink/50">None</p>'}</div></div>
+ <div><p class="text-sm font-semibold mb-2">Your own recommendations</p><div class="space-y-2">${own.map(row).join('')||'<p class="text-sm text-ink/50">None yet. Add your own below.</p>'}
+ <div class="flex gap-2"><input id="own_${c}" class="${inp}" placeholder="Add your own ${CAT[c].toLowerCase()} item" onkeydown="if(event.key==='Enter')addOwn('${c}')"><button data-l="add own ${c}" onclick="addOwn('${c}')" class="${ghost} py-2">Add</button></div></div></div></div></section>`}
+function summary(){return ['med','tst','fu'].map(c=>{const l=S.plan.filter(p=>p.c===c);return `<div><b>${CAT[c]}</b>${l.length?`<ul class="list-disc pl-5 text-sm mt-1">${l.map(p=>`<li>${esc(p.t)} <span class="text-xs text-ink/50">(${p.src==='own'?'yours':'global'})</span></li>`).join('')}</ul>`:'<p class="text-sm text-ink/50">Nothing selected</p>'}</div>`}).join('')}
+const rxLines=c=>S.plan.filter(p=>p.c===c).map(p=>p.t);
+const nextDate=()=>S.fp.days?new Date(Date.now()+S.fp.days*864e5).toLocaleDateString([],{day:'numeric',month:'short',year:'numeric'}):'';
+const callout=(t,x,cls)=>x?`<div role="alert" class="rounded-2xl p-4 mb-3 ${cls}"><b>${t}</b><p class="mt-1">${esc(x)}</p></div>`:'';
+const revealRow=(k,q,a,why,lab)=>`<div class="${card}"><p class="font-medium">${esc(q)}</p>${S.rev[k]?`<p class="mt-2 border-l-4 border-red pl-3">${esc(a)}</p>${why?`<p class="text-sm text-ink/60 mt-1">${esc(why)}</p>`:''}`:`<button data-l="${lab} ${k}" onclick="rv('${k}')" class="mt-2 text-red text-sm font-semibold">${lab}</button>`}</div>`;
+
+function render(){
+ const p=S.page,app=$('app'),c=S.c,inApp=NAV.some(n=>n[0]===p);
+ $('top').classList.toggle('hidden',!inApp);
+ if(p==='reg'){app.innerHTML=`<div class="pt-4 sm:pt-10 max-w-xl mx-auto"><h1 class="font-serif text-4xl font-bold text-red leading-tight">How would you use GenAI in the next five minutes?</h1><p class="mt-3 text-ink/70">You will see a patient case and a set of clinical tools. We record what you tap and how long you spend on each page. Start by telling us who you are.</p>
+ <div class="${card} mt-6 space-y-3">${[['name','Doctor name'],['spec','Specialization'],['hosp','Hospital name']].map(([k,l])=>`<label class="block text-sm font-medium">${l}<input id="${k}" class="mt-1 ${inp} py-3"></label>`).join('')}<button onclick="register()" class="${btn}">Continue</button></div><p class="text-xs text-ink/50 mt-4">${SIM}</p></div>`}
+ else if(p==='tabs'){app.innerHTML=h2('Choose a patient case','Cases with a clock run on a 5:00 timer. The case’s own minutes are compressed to fit, and the other characters speak up on schedule.')+(C.length?`<div class="${grid}">${C.map((x,i)=>`<button data-l="case ${x.L}" onclick="pick(${i})" class="${card} w-full flex items-center gap-4 text-left active:bg-beige"><span class="w-11 h-11 rounded-xl grid place-items-center text-white font-bold shrink-0" style="background:${x.col}">${x.L}</span><span class="flex-1 min-w-0"><b class="block">${esc(x.title)}</b><span class="text-sm text-ink/60 block">${esc(x.patient)}</span><span class="mt-1 inline-block">${stakes(x)}</span></span><span class="font-serif font-bold ${x.clk?'text-red':'text-ink/40'}">${x.clk?x.mins+' min':'No clock'}</span></button>`).join('')}</div>`:'<p class="text-red">Could not load static/cases.json.</p>')}
+ else if(p==='video'){app.innerHTML=h2(`Case ${c.L}: ${esc(c.title)}`,esc(c.patient+'. '+c.setting))+`
+ <video id="vid" class="w-full max-w-3xl block rounded-2xl bg-ink aspect-video" controls autoplay playsinline src="/static/videos/${c.L}.mp4" onended="log('video_ended');startApp()" onerror="this.outerHTML='<div class=&quot;rounded-2xl bg-ink text-white aspect-video grid place-items-center text-center p-4 text-sm&quot;>Video not found. Add static/videos/${c.L}.mp4, or skip.</div>'"></video>
+ <button data-l="skip video" onclick="log('skip_video');startApp()" class="${btn} mt-4 max-w-3xl">Skip video</button>`}
+ else if(p==='complaint'){app.innerHTML=h2('Patient complaint','Choose how to receive the complaint.')+`<div class="${card} mb-4 space-y-1"><div class="flex flex-wrap gap-2 items-center"><b>${esc(c.patient)}</b>${stakes(c)}</div><p class="text-sm text-ink/70">${esc(c.setting)}</p><p class="text-sm"><b>With:</b> ${esc(c.with)}</p>${c.clk?`<p class="text-sm text-red font-semibold">${esc(c.deadline)}</p>`:''}</div>
+ <div class="grid grid-cols-2 gap-3 max-w-xl"><button data-l="listen option" onclick="S.cm='listen';render()" class="${S.cm==='listen'?btn:ghost+' bg-white'}">Listen to the patient</button><button data-l="read option" onclick="S.cm='read';render()" class="${S.cm==='read'?btn:ghost+' bg-white'}">Read on screen</button></div>
+ ${S.cm==='listen'?`<div class="${card} mt-4 max-w-xl"><p class="text-sm text-ink/70">Plays static/audio/${c.L}.mp3 if present, otherwise a computer voice reads each speaker’s opening line.</p><div class="grid grid-cols-2 gap-3 mt-3"><button data-l="play complaint" onclick="listen()" class="${btn}">Play</button><button data-l="stop complaint" onclick="speechSynthesis.cancel();S.aud&&S.aud.pause()" class="${ghost}">Stop</button></div></div>`:''}
+ ${S.cm==='read'?`<div class="${card} mt-4 max-w-xl space-y-3">${c.opening.map(o=>`<p><b class="text-red">${esc(o.s)}</b><span class="block font-serif text-xl leading-snug">“${esc(o.l)}”</span></p>`).join('')}</div>`:''}
+ ${S.cm?`<div class="${card} mt-4 max-w-xl border-red"><p class="text-sm font-semibold text-red">The patient and family are asking for</p><ul class="list-disc pl-5 mt-1">${c.req.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>`:''}`}
+ else if(p==='record'){app.innerHTML=h2('Listen, transcribe and record','Record the conversation. Speech is transcribed automatically as you talk, with a time stamp and speaker on each line. Live transcription works in Chrome, Edge and Safari; the audio is recorded in any browser with a microphone.')+`
+ <div class="${card} max-w-3xl"><div class="flex flex-wrap items-center gap-3"><button data-l="${S.recOn?'stop recording':'start recording'}" onclick="${S.recOn?'recStop()':'recStart()'}" class="${btn} !w-auto">${S.recOn?'Stop recording':(S.seg.length||S.audioUrl?'Resume recording':'Start recording')}</button>${S.recOn?`<span class="text-red font-semibold animate-pulse">● Recording <span id="rtm" class="tabular-nums">0:00</span></span>`:''}</div>
+ <div class="mt-4 flex flex-wrap gap-2 items-center"><span class="text-sm font-medium">Speaking now:</span>${['Doctor','Patient','Attendant'].map(w=>`<button data-l="speaker ${w}" onclick="S.who='${w}';render()" class="px-3 py-1.5 rounded-xl text-sm font-semibold ${S.who===w?'bg-red text-white':'border border-red text-red'}">${w}</button>`).join('')}
+ <label class="text-sm flex items-center gap-2 ml-2"><input type="checkbox" class="w-4 h-4 accent-[#B3202A]" ${S.auto?'checked':''} onchange="S.auto=this.checked">Switch speaker after each pause</label></div>
+ <div id="seg" class="mt-4 space-y-2"></div>
+ <div class="flex flex-wrap gap-3 mt-3"><button data-l="add transcript line" onclick="S.seg.push({t:Date.now()-(S.rt0||Date.now()),who:S.who,text:''});drawSeg();log('transcript_line_added')" class="text-red text-sm font-semibold">+ Add a line by hand</button><button data-l="copy transcript" onclick="navigator.clipboard.writeText(trText()).then(()=>toast('Transcript copied'))" class="text-red text-sm font-semibold">Copy transcript</button></div>
+ ${S.audioUrl?`<audio controls src="${S.audioUrl}" class="w-full mt-4"></audio><a download="consultation-${c.L}.webm" href="${S.audioUrl}" class="text-sm text-red font-semibold inline-block mt-2">Download recording</a>`:''}
+ <p class="text-xs text-ink/50 mt-4">The transcript is saved with the record when you save the prescription.</p></div>`;drawSeg()}
+ else if(p==='questions'){app.innerHTML=h2('Questions to ask','Suggested from this patient’s symptoms. Tick each one as you ask it, or ask a question below to hear the answer.')+`<div class="${grid}">${c.sq.map((t,i)=>`<label class="${card} flex gap-3 cursor-pointer"><input type="checkbox" class="${chk}" ${S.asked['q'+i]?'checked':''} onchange="S.asked['q${i}']=this.checked;log('question_asked',this.checked?'${i}':'undo ${i}')"><span class="font-medium">${esc(t)}</span></label>`).join('')}</div>
+ ${h3('Ask the patient')}<div class="${grid}">${c.dq.map((d,i)=>revealRow('d'+i,d.ask,d.ans,d.why,'Ask this')).join('')}</div>
+ ${h3('The patient and family ask you')}<div class="${grid}">${c.pq.map((d,i)=>revealRow('p'+i,d.by+': '+d.q,d.a,'','Show model response')).join('')}</div>
+ ${h3('If you…')}<div class="${grid}">${c.push.map(d=>`<div class="${card}"><p class="text-sm text-ink/60">If you ${esc(d.when)}</p><p class="mt-1"><b>${esc(d.s)}:</b> ${esc(d.l)}</p></div>`).join('')}</div>`}
+ else if(p==='findings'){app.innerHTML=h2('Findings','Vitals are shown on arrival. Examination findings are released on request. Test results appear when you order the test.')+`<div class="${card}"><b>Vitals on arrival</b><ul class="grid sm:grid-cols-2 gap-x-6 mt-2 text-sm">${c.vitals.map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div>
+ ${h3('Examination')}${S.rev.exam?`<div class="${card}"><ul class="list-disc pl-5 space-y-1">${c.exam.map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div>`:`<button data-l="release exam" onclick="rv('exam')" class="${btn} max-w-xs">Examine the patient</button>`}
+ ${h3('Test results')}<div class="${grid}">${c.results.map((r,i)=>`<div class="${card}"><b>${esc(r.t)}</b>${S.ord[c.L+i]?`<p class="mt-1">${esc(r.r)}</p>`:`<p class="text-sm text-ink/50 mt-1">Not ordered</p><button data-l="order ${esc(r.t.slice(0,30))}" onclick="ordT(${i})" class="mt-2 text-red text-sm font-semibold">Order and show result</button>`}</div>`).join('')}</div>`}
+ else if(p==='dx'){app.innerHTML=h2('Diagnosis support','Possible diagnoses from the information so far. These support, and do not replace, your clinical judgement.')+callout('Case summary',c.summary,'bg-white border border-beige-deep')+callout(c.hi?'Must not miss':'Must not miss',c.must,c.hi?'bg-red text-white':'bg-amber-100 text-amber-900')+`<div class="${grid}">${c.dx.map(d=>`<div class="${card}"><div class="flex justify-between gap-2"><b>${esc(d.n)}</b><span class="text-xs font-semibold rounded-full px-2 py-0.5 h-fit whitespace-nowrap ${lik(d.lik)}">${esc(d.lik)}</span></div><p class="text-sm text-ink/60 mt-1">${esc(d.basis)}</p></div>`).join('')}</div>`}
+ else if(p==='recs'){S.items=[];
+ app.innerHTML=h2('Recommendations','Global evidence-based options sit beside your own. Tick any item to add it to the treatment plan.')+callout('On the patient’s request',c.reqNote,'bg-white border border-red')+callout('Cautions',c.cautions.join(' '),'bg-amber-100 text-amber-900')+
+ catBlock('med',c.meds.map(m=>join(m.n,m.use,m.note)))+catBlock('tst',[...c.tests.map(t=>join(t.t,t.why)),...c.related.map(t=>join(t.t,'if needed: '+t.when))])+catBlock('fu',[c.fu.w,...c.fu.m.map(t=>'Monitor: '+t),...c.fu.u.map(t=>'Return urgently if: '+t)])+
+ `<section class="${card} mt-8"><h3 class="font-serif text-xl font-bold mb-3">Your selections</h3><div class="grid gap-4 md:grid-cols-3">${summary()}</div><button data-l="go to plan" onclick="go('plan')" class="${btn} mt-4 md:max-w-xs">Review treatment plan</button></section>`}
+ else if(p==='plan'){app.innerHTML=h2('Treatment plan','Everything you selected from global and your own recommendations. Edit or remove lines.')+['med','tst','fu'].map(k=>`<section class="mb-5"><h3 class="font-serif text-xl font-bold mb-2">${CAT[k]}</h3><div class="space-y-2">${S.plan.map((x,i)=>x.c!==k?'':`<div class="flex gap-2 items-start"><textarea rows="2" oninput="S.plan[${i}].t=this.value" onchange="log('plan_edit',this.value.slice(0,40))" class="${inp} flex-1">${esc(x.t)}</textarea><span class="text-xs text-ink/50 pt-3 w-12">${x.src==='own'?'yours':'global'}</span><button data-l="remove line" aria-label="Remove line" onclick="S.plan.splice(${i},1);render()" class="text-red text-2xl px-1">×</button></div>`).join('')||'<p class="text-sm text-ink/50">Nothing yet. Add items on the Recommendations page.</p>'}</div><button data-l="add line ${k}" onclick="S.plan.push({c:'${k}',t:'',src:'own'});render()" class="text-red text-sm font-semibold mt-2">+ Add a line</button></section>`).join('')+`<button onclick="go('rx')" class="${btn} max-w-xs">Prepare prescription</button>`}
+ else if(p==='records'){app.innerHTML=h2('Previous patient records')+`<div class="${card} border-red max-w-2xl"><p class="font-medium">${NOREC}</p></div><div class="${grid} mt-4 max-w-2xl">${['Previous consultations','Medical history','Medicines','Allergies','Test results'].map(t=>`<div class="${card}"><b>${t}</b><p class="text-sm text-ink/50 mt-1">Not available</p></div>`).join('')}</div>
+ ${h3('Saved in this simulation')}<div id="rec" class="${grid} text-sm text-ink/60">Loading…</div>`;loadRecs()}
+ else if(p==='trends'){const g={};c.sim.forEach(r=>(g[r.p]=g[r.p]||[]).push(r.v));
+ app.innerHTML=h2('Medical trends: '+esc(c.title),'Simulated reference data invented for the platform. Not real statistics and not for clinical use.')+Object.entries(g).map(([k,v],i)=>`${h3(esc(k),i?'mt-6':'')}<div class="space-y-3">${v.map(t=>`<div class="${card}"><p class="font-medium">${esc(t)}</p></div>`).join('')}</div>`).join('')}
+ else if(p==='rx'){const ap=S.appr;app.innerHTML=h2('Prescription','Review and approve before printing.')+`
+ <div id="sheet" class="${card} max-w-2xl"><div class="flex justify-between items-start gap-3"><div><h3 class="font-serif text-xl font-bold text-red">Prescription</h3><p class="text-sm text-ink/60">${esc(S.who0)} · ${new Date().toLocaleDateString()}</p></div>${ap?'':'<span class="text-xs font-semibold text-red border border-red rounded px-2 py-1">DRAFT: not approved</span>'}</div>
+ <label class="block text-sm font-medium mt-3">Patient name<input value="${esc(S.name)}" oninput="S.name=this.value" class="mt-1 ${inp}"></label><p class="text-sm text-ink/60 mt-1">${esc(c.patient)}</p>
+ ${[['med','Medicines (dosage, duration)'],['tst','Tests'],['fu','Advice and follow-up']].map(([k,t])=>`<h4 class="font-semibold mt-4">${t}</h4><ul class="list-disc pl-5 text-sm mt-1">${rxLines(k).map(x=>`<li>${esc(x)}</li>`).join('')||'<li class="list-none -ml-5 text-ink/50">None selected</li>'}</ul>`).join('')}
+ <h4 class="font-semibold mt-4">Next visit</h4><p class="text-sm">${esc(S.fp.lbl?S.fp.lbl+' ('+nextDate()+')':'Not set')}. ${esc(S.fp.w||'')}</p>
+ ${S.fp.u?`<h4 class="font-semibold mt-3">Come back urgently if</h4><ul class="list-disc pl-5 text-sm">${S.fp.u.split('\n').filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+ <p class="text-xs text-ink/50 mt-4">${ap?'Approved by '+esc(S.who0):'Valid only after doctor approval.'} ${SIM}</p>
+ <label class="noprint flex gap-2 items-center mt-4 font-medium"><input type="checkbox" class="w-5 h-5 accent-[#B3202A]" ${ap?'checked':''} onchange="S.appr=this.checked;log('rx_approve',String(this.checked));render()">I have reviewed and approve this prescription</label>
+ <div class="noprint grid grid-cols-2 gap-3 mt-4"><button data-l="print" ${ap?'':'disabled'} onclick="print()" class="${ghost} disabled:opacity-40">Print</button><button data-l="save record" onclick="saveRec()" class="${btn}">Save to records</button></div></div>`}
+ else if(p==='fu'){const f=S.fp;app.innerHTML=h2('Follow-up plan','Plan for the next consultation. Prefilled for this case; edit as needed.')+`<div class="${card} max-w-2xl"><p class="text-sm font-semibold">Next consultation</p><div class="flex flex-wrap gap-2 mt-2">${[['24 hours',1],['48 hours',2],['1 week',7],['2 weeks',14],['1 month',30]].map(([l,d])=>`<button data-l="fu ${l}" onclick="S.fp.lbl='${l}';S.fp.days=${d};render()" class="px-3 py-2 rounded-xl text-sm font-semibold ${f.days===d?'bg-red text-white':'border border-red text-red'}">${l}</button>`).join('')}</div>${f.days?`<p class="mt-2 text-sm">Around <b>${nextDate()}</b></p>`:''}
+ <label class="block text-sm font-medium mt-4">When and why to return<textarea rows="2" oninput="S.fp.w=this.value" class="mt-1 ${inp}">${esc(f.w)}</textarea></label>
+ <label class="block text-sm font-medium mt-3">What to monitor (one per line)<textarea rows="3" oninput="S.fp.m=this.value" class="mt-1 ${inp}">${esc(f.m)}</textarea></label>
+ <label class="block text-sm font-medium mt-3">Warning signs that need urgent care<textarea rows="3" oninput="S.fp.u=this.value" class="mt-1 ${inp}">${esc(f.u)}</textarea></label>
+ <button onclick="go('rx')" class="${btn} mt-4">Add to prescription</button></div>`}
+ if(inApp)app.insertAdjacentHTML('beforeend',`<p class="noprint text-xs text-ink/50 mt-10">${SIM}</p>`);
+ $('nav').innerHTML=NAV.map(n=>{const on=p===n[0];return `<button data-l="nav:${n[1]}" ${on?'aria-current="page"':''} onclick="go('${n[0]}')" class="shrink-0 whitespace-nowrap px-3 sm:px-4 py-3 rounded-t-xl transition-colors ${on?'bg-beige text-red font-semibold':'text-white/90 hover:bg-white/10'}">${n[1]}</button>`}).join('');
+ const nv=$('nav'),on=nv.querySelector('[aria-current]');if(on)nv.scrollTo({left:on.offsetLeft-(nv.clientWidth-on.offsetWidth)/2})
+}
+function ordT(i){const r=S.c.results[i];S.ord[S.c.L+i]=1;if(!inPlan('tst',r.t)){S.plan.push({c:'tst',t:r.t,src:'global'})}log('order_test',r.t.slice(0,50));render()}
+/* ---- listen ---- */
+function speakAll(ls){speechSynthesis.cancel();ls.forEach((o,i)=>{const u=new SpeechSynthesisUtterance(o.l);u.lang='en-IN';u.rate=.95;u.pitch=i?.85:1.15;speechSynthesis.speak(u)})}
+function listen(){log('listen_complaint',S.c.L);S.aud=new Audio('/static/audio/'+S.c.L+'.mp3');S.aud.play().catch(()=>speakAll(S.c.opening))}
+/* ---- record + live transcription ---- */
+const trText=()=>S.seg.filter(s=>s.text.trim()).map(s=>`[${fmt(s.t)}] ${s.who}: ${s.text.trim()}`).join('\n');
+function drawSeg(){const e=$('seg');if(!e)return;
+ e.innerHTML=S.seg.map((s,i)=>`<div class="flex gap-2 items-start"><span class="text-xs text-ink/50 pt-3 w-9 tabular-nums">${fmt(s.t)}</span><select onchange="S.seg[${i}].who=this.value" class="rounded-xl border border-beige-deep bg-white px-2 py-2 text-sm">${['Doctor','Patient','Attendant'].map(w=>`<option ${w===s.who?'selected':''}>${w}</option>`).join('')}</select><input value="${esc(s.text)}" oninput="S.seg[${i}].text=this.value" class="${inp} flex-1"><button aria-label="Remove line" onclick="S.seg.splice(${i},1);drawSeg()" class="text-red text-xl px-1">×</button></div>`).join('')
+ +(S.interim?`<p class="text-sm text-ink/50 italic pl-11">${esc(S.who)}: ${esc(S.interim)}…</p>`:'')||`<p class="text-sm text-ink/50">${S.recOn?'Listening…':'The transcript appears here as you speak.'}</p>`}
+async function recStart(){try{const st=await navigator.mediaDevices.getUserMedia({audio:true});S.chunks=[];S.mr=new MediaRecorder(st);S.mr.ondataavailable=e=>S.chunks.push(e.data);
+ S.mr.onstop=()=>{st.getTracks().forEach(t=>t.stop());S.audioUrl=URL.createObjectURL(new Blob(S.chunks,{type:S.mr.mimeType}));render()};S.mr.start();
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(SR){S.sr=new SR();S.sr.continuous=true;S.sr.interimResults=true;S.sr.lang='en-IN';
+  S.sr.onresult=e=>{let it='';for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i],tx=r[0].transcript.trim();
+    if(r.isFinal){if(tx){S.seg.push({t:Date.now()-S.rt0,who:S.who,text:tx});if(S.auto)S.who=S.who==='Doctor'?'Patient':'Doctor'}}else it+=tx+' '}
+   S.interim=it.trim();drawSeg()};
+  S.sr.onerror=e=>{if(e.error==='not-allowed')toast('Microphone access was blocked')};
+  S.sr.onend=()=>{if(S.recOn)try{S.sr.start()}catch{}};S.sr.start()}else toast('Live transcription is not supported here. Type lines by hand.');
+ S.rt0=S.rt0?Date.now()-(S.last||0):Date.now();S.recOn=true;clearInterval(S.rti);S.rti=setInterval(()=>{S.last=Date.now()-S.rt0;const e=$('rtm');if(e)e.textContent=fmt(S.last)},500);log('record_start');render()}catch{toast('Microphone not available')}}
+function recStop(){S.recOn=false;clearInterval(S.rti);S.interim='';try{S.sr&&S.sr.stop()}catch{}S.mr&&S.mr.state!=='inactive'&&S.mr.stop();log('record_stop',S.seg.length+' lines');render()}
+/* ---- session ---- */
+async function register(){const v=k=>$(k).value.trim();if(!v('name')||!v('spec')||!v('hosp'))return toast('Please fill all three fields');
+ try{const d=await send('/doctors',{name:v('name'),specialization:v('spec'),hospital:v('hosp')});S.doc=d.id;S.who0='Dr '+d.name;S.q.forEach(e=>e.doctor_id=e.doctor_id||d.id);go('tabs')}catch{toast('Could not save. Is the server running?')}}
+async function pick(i){S.c=C[i];Object.assign(S,{plan:[],own:[],seg:[],who:'Doctor',rt0:0,last:0,interim:'',cm:'',asked:{},rev:{},ord:{},appr:false,audioUrl:null,name:''});const f=S.c.fu;S.fp={w:f.w,m:f.m.join('\n'),u:f.u.join('\n')};
+ try{const s=await send('/sessions',{doctor_id:S.doc,tab:S.c.L,story:S.c.title,opening:S.c.clk?'Busy':'Quiet',device:matchMedia('(max-width:767px)').matches?'mobile':'desktop',user_agent:navigator.userAgent.slice(0,300),screen:screen.width+'x'+screen.height+' (viewport '+innerWidth+'x'+innerHeight+')'});S.sid=s.id}catch{toast('Session not saved')}
+ go('video')}
+function banner(t){const b=$('bn');b.textContent=t;b.classList.remove('hidden');clearTimeout(S.bt);S.bt=setTimeout(()=>b.classList.add('hidden'),14000);log('interjection',t.slice(0,60))}
+function startApp(){const c=S.c;$('who').textContent=S.who0+' · Case '+c.L+' · '+c.title;clearInterval(S.timer);S.tos.forEach(clearTimeout);S.tos=[];$('bn').classList.add('hidden');
+ if(c.clk){S.left=300;tick();S.timer=setInterval(tick,1000);c.clock.forEach(x=>S.tos.push(setTimeout(()=>banner(x.s+': “'+x.l+'”'),Math.round(+x.m/c.mins*300000))))}else $('clk').textContent='';go('complaint')}
+function tick(){const m=Math.floor(S.left/60),s=S.left%60;$('clk').textContent=m+':'+String(s).padStart(2,'0');
+ if(S.left<=0){clearInterval(S.timer);log('timer_expired');$('clk').textContent='0:00 · time up'}S.left--}
+async function saveRec(){if(!S.name.trim())return toast('Enter the patient name');
+ const items=[...rxLines('med').map(x=>'Medicine: '+x),...rxLines('tst').map(x=>'Test: '+x),...rxLines('fu').map(x=>'Advice: '+x)];if(S.fp.lbl)items.push('Next visit: '+S.fp.lbl);
+ try{await send('/records',{session_id:S.sid,doctor_id:S.doc,patient_name:S.name,items,notes:S.c.title,payload:{case:S.c.L,transcript:trText(),segments:S.seg,plan:S.plan,followup:S.fp,approved:S.appr,asked:S.asked,tests_ordered:Object.keys(S.ord).length}});log('record_saved',S.name);toast('Record saved')}catch{toast('Save failed')}}
+async function loadRecs(){try{const r=await fetch(API+'/records?doctor_id='+S.doc).then(r=>r.json());
+ $('rec').innerHTML=r.length?r.map(x=>`<div class="${card} text-ink"><b>${esc(x.patient_name)}</b><span class="block text-ink/60">${new Date(x.created_at).toLocaleString()} · ${esc(x.notes)}</span><ul class="list-disc pl-5 mt-2">${x.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>`).join(''):'No records yet. Save a prescription to see it here.'}catch{$('rec').textContent='Could not load records.'}}
+(async()=>{try{const[a,b]=await Promise.all(['cases','followup'].map(n=>fetch('/static/'+n+'.json').then(r=>r.json())));C=Object.values(a);C.forEach((c,i)=>{c.col=COL[i%8];c.fu=b[c.L]})}catch{}go('reg')})();
+</script>
+</body>
+</html>
